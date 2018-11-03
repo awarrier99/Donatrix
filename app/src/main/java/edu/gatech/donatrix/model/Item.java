@@ -1,6 +1,4 @@
-package edu.gatech.donatrix3.model;
-
-import android.media.Image;
+package edu.gatech.donatrix.model;
 
 import java.sql.Timestamp;
 

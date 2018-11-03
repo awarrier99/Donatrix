@@ -1,11 +1,11 @@
-package edu.gatech.donatrix3.controllers;
+package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import edu.gatech.donatrix3.R;
+import edu.gatech.donatrix.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

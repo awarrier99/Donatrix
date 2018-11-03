@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.controllers;
+package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +9,17 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import edu.gatech.donatrix3.R;
-import edu.gatech.donatrix3.dao.LocationDao;
-import edu.gatech.donatrix3.dao.UserDao;
-import edu.gatech.donatrix3.model.Admin;
-import edu.gatech.donatrix3.model.Location;
-import edu.gatech.donatrix3.model.LocationEmployee;
-import edu.gatech.donatrix3.model.LocationType;
-import edu.gatech.donatrix3.model.User;
-import edu.gatech.donatrix3.model.UserType;
+import java.util.regex.Pattern;
+
+import edu.gatech.donatrix.R;
+import edu.gatech.donatrix.dao.UserDao;
+import edu.gatech.donatrix.model.User;
+import edu.gatech.donatrix.model.UserType;
+import edu.gatech.donatrix.dao.LocationDao;
+import edu.gatech.donatrix.model.Admin;
+import edu.gatech.donatrix.model.Location;
+import edu.gatech.donatrix.model.LocationEmployee;
+import edu.gatech.donatrix.model.LocationType;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -64,6 +66,11 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     public void onNothingSelected(AdapterView<?> parent) {
         userType = UserType.USER;
         location = null;
+    }
+
+    private boolean isEmailValid(String email) {
+        Pattern validEmail = Pattern.compile("^[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z]+$");
+        return validEmail.matcher(email).matches();
     }
 
     public void onRegisterPressed(View view) {

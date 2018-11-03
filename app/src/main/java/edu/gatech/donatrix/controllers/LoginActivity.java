@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.controllers;
+package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import edu.gatech.donatrix3.R;
-import edu.gatech.donatrix3.dao.UserDao;
+import edu.gatech.donatrix.R;
+import edu.gatech.donatrix.dao.UserDao;
 
 public class LoginActivity extends AppCompatActivity {
 

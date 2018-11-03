@@ -1,8 +1,6 @@
-package edu.gatech.donatrix3.model;
+package edu.gatech.donatrix.model;
 
 import java.io.Serializable;
-import android.content.Context;
-import edu.gatech.donatrix3.dao.Database;
 
 
 public class User implements Serializable {

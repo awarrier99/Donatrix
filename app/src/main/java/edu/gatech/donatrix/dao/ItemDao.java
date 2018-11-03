@@ -1,16 +1,17 @@
-package edu.gatech.donatrix3.dao;
+package edu.gatech.donatrix.dao;
 
 
 import android.content.Context;
+
 import java.sql.Timestamp;
-import java.util.Date;
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
-import edu.gatech.donatrix3.model.Item;
-import edu.gatech.donatrix3.model.ItemCategory;
-import edu.gatech.donatrix3.model.Location;
-import edu.gatech.donatrix3.model.LocationEmployee;
+import edu.gatech.donatrix.model.Item;
+import edu.gatech.donatrix.model.ItemCategory;
+import edu.gatech.donatrix.model.Location;
+import edu.gatech.donatrix.model.LocationEmployee;
 
 public class ItemDao {
 

@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.controllers;
+package edu.gatech.donatrix.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
