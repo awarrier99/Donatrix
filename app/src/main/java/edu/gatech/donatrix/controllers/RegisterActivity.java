@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
     }
 
-    public void onCancelPressed() {
+    public void onCancelPressed(View view) {
         finish();
     }
 
