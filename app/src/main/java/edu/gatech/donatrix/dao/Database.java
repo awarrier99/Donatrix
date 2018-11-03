@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.dao;
+package edu.gatech.donatrix.dao;
 
 import android.content.Context;
 import android.util.Log;
@@ -17,11 +17,11 @@ import java.util.HashMap;
 
 import java.util.Map;
 
-import edu.gatech.donatrix3.R;
-import edu.gatech.donatrix3.model.Item;
-import edu.gatech.donatrix3.model.Location;
-import edu.gatech.donatrix3.model.LocationEmployee;
-import edu.gatech.donatrix3.model.User;
+import edu.gatech.donatrix.R;
+import edu.gatech.donatrix.model.Item;
+import edu.gatech.donatrix.model.Location;
+import edu.gatech.donatrix.model.LocationEmployee;
+import edu.gatech.donatrix.model.User;
 
 
 public class Database {

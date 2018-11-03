@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.controllers;
+package edu.gatech.donatrix.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,12 +7,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-import edu.gatech.donatrix3.R;
-import edu.gatech.donatrix3.dao.UserDao;
-import edu.gatech.donatrix3.model.User;
-import edu.gatech.donatrix3.model.UserType;
+import edu.gatech.donatrix.R;
+import edu.gatech.donatrix.dao.UserDao;
+import edu.gatech.donatrix.model.User;
+import edu.gatech.donatrix.model.UserType;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

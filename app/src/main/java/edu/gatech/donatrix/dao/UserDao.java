@@ -1,8 +1,8 @@
-package edu.gatech.donatrix3.dao;
+package edu.gatech.donatrix.dao;
 
 import android.content.Context;
 
-import edu.gatech.donatrix3.model.User;
+import edu.gatech.donatrix.model.User;
 
 
 public class UserDao {

@@ -1,7 +1,7 @@
-package edu.gatech.donatrix3.model;
+package edu.gatech.donatrix.model;
 
 import java.io.Serializable;
-import edu.gatech.donatrix3.dao.Database;
+import edu.gatech.donatrix.dao.Database;
 import android.content.Context;
 
 

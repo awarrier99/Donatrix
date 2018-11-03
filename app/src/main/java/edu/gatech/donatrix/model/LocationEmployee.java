@@ -1,7 +1,7 @@
-package edu.gatech.donatrix3.model;
+package edu.gatech.donatrix.model;
 
 import java.sql.Timestamp;
-import edu.gatech.donatrix3.dao.Database;
+
 import android.content.Context;
 
 

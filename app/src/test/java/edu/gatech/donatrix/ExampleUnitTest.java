@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3;
+package edu.gatech.donatrix;
 
 import org.junit.Test;
 

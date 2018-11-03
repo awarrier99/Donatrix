@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.model;
+package edu.gatech.donatrix.model;
 
 import java.util.ArrayList;
 import java.util.List;

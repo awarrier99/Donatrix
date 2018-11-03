@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.gatech.donatrix3">
+    package="edu.gatech.donatrix">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.WelcomeActivity">
+        <activity android:name="edu.gatech.donatrix.controllers.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controllers.LoginActivity"
+            android:name="edu.gatech.donatrix.controllers.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".controllers.RegisterActivity"></activity>
+        <activity android:name="edu.gatech.donatrix.controllers.RegisterActivity"></activity>
     </application>
 
 </manifest>

@@ -1,7 +1,4 @@
-package edu.gatech.donatrix3.model;
-
-import android.content.Context;
-
+package edu.gatech.donatrix.model;
 
 
 public class Admin extends User {

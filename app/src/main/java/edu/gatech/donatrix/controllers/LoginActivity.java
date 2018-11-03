@@ -1,4 +1,4 @@
-package edu.gatech.donatrix3.controllers;
+package edu.gatech.donatrix.controllers;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,8 +31,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
-import edu.gatech.donatrix3.R;
+import edu.gatech.donatrix.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -193,8 +194,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
+        Pattern validEmail = Pattern.compile("^[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z]+$");
+        return validEmail.matcher(email).matches();
     }
 
     private boolean isPasswordValid(String password) {
