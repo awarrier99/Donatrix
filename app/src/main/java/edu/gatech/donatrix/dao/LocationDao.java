@@ -5,9 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import edu.gatech.donatrix.model.Location;
-
-//public class LocationDao {
-//    public static List<Location> getLocations(Context context) {
+import edu.gatech.donatrix.model.User;
 
 public class LocationDao {
     public static List<Location> getLocations(Context context) {
