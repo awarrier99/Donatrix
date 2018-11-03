@@ -1,5 +1,6 @@
 package edu.gatech.donatrix3.controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -72,18 +73,24 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 if (userType.equals(UserType.USER)) {
                     User user = new User(emailField.toString(), passwordField.toString(), nameField.toString(), false, UserType.USER);
                     UserDao.registerUser(user, this);
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 } else if (userType.equals(UserType.ADMIN)) {
                     User user = new Admin(emailField.toString(), passwordField.toString(), nameField.toString());
                     UserDao.registerUser(user, this);
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 } else if (userType.equals(UserType.LOCATION_EMPLOYEE)) {
                     User user = new LocationEmployee(emailField.toString(), passwordField.toString(), nameField.toString(), location);
                     UserDao.registerUser(user, this);
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
         }
     }
 
-    public void onCancelPressed(View view) {
+    public void onCancelPressed() {
         finish();
     }
 
