@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.List;
 import java.util.HashMap;
 import edu.gatech.donatrix3.model.Location;
+import edu.gatech.donatrix3.model.User;
 
 //public class LocationDao {
 //    public static List<Location> getLocations(Context context) {

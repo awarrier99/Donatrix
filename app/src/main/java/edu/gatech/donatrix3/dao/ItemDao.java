@@ -7,6 +7,11 @@ import java.util.Date;
 import java.time.Instant;
 import java.util.List;
 
+import edu.gatech.donatrix3.model.Item;
+import edu.gatech.donatrix3.model.ItemCategory;
+import edu.gatech.donatrix3.model.Location;
+import edu.gatech.donatrix3.model.LocationEmployee;
+
 public class ItemDao {
 
     public static void addItem(LocationEmployee employee, String sDescription, String fDescription,
