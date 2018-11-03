@@ -2,6 +2,7 @@ package edu.gatech.donatrix.controllers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import edu.gatech.donatrix.R;
 
@@ -13,7 +14,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
     }
 
-    public void onLogoutPressed() {
+    public void onLogoutPressed(View view) {
         finish();
     }
 }
