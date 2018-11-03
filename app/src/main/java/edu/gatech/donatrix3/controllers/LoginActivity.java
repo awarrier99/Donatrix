@@ -1,8 +1,8 @@
 package edu.gatech.donatrix3.controllers;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,11 +24,11 @@ public class LoginActivity extends AppCompatActivity {
         passwordField = (EditText) findViewById(R.id.loginPasswordTextField);
     }
 
-    public void onCancelPressed() {
+    public void onCancelPressed(View view) {
         finish();
     }
 
-    public void onLoginPressed() {
+    public void onLoginPressed(View view) {
         if (UserDao.checkRegisteredUser(emailField.toString(), passwordField.toString(), this)) {
             Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
             startActivity(intent);
