@@ -20,7 +20,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     public void onLocationListPressed(View view) {
-        Intent intent = new Intent(DashboardActivity.this, LocationListActivity.class);
+        Intent intent = new Intent(this, LocationListActivity.class);
         startActivity(intent);
     }
 }

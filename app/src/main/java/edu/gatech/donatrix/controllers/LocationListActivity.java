@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import java.util.List;
 
@@ -25,11 +26,11 @@ public class LocationListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_list);
 
-        View recyclerView = findViewById(R.id.locationlistLocationListContainer);
+        View recyclerView = findViewById(R.id.location_list);
         setupRecyclerView((RecyclerView) recyclerView);
     }
 
-    private void setupRecyclerView(RecyclerView recyclerView) {
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(Database.getInstance(this).getLocations()));
     }
 
@@ -43,9 +44,9 @@ public class LocationListActivity extends AppCompatActivity {
 
         @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.activity_location_list, parent, false);
+                    .inflate(R.layout.location_list_content, parent, false);
             return new ViewHolder(view);
         }
 
