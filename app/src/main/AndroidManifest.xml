@@ -23,12 +23,9 @@
         </activity>
         <activity android:name=".controllers.RegisterActivity" />
         <activity android:name=".controllers.LoginActivity" />
-        <activity android:name=".controllers.LocationListActivity" />
         <activity android:name=".controllers.DashboardActivity" />
-        <activity android:name=".controllers.LocationDetailActivity" />
-        <activity android:name=".controllers.location_list_content" />
         <activity android:name=".LocationDetailFragment" />
-        <activity android:name=".Location_detail"></activity>
+        <activity android:name=".controllers.LocationListActivity"></activity>
     </application>
 
 </manifest>

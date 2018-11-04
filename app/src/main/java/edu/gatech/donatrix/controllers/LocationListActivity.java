@@ -1,92 +1,42 @@
 package edu.gatech.donatrix.controllers;
 
-import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-import java.util.List;
-
-import edu.gatech.donatrix.LocationDetailFragment;
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.Database;
+import edu.gatech.donatrix.dao.LocationDao;
 import edu.gatech.donatrix.model.Location;
 
-public class LocationListActivity extends AppCompatActivity {
+public class LocationListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    private Spinner locationSpinner;
+
+    private Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_list);
 
-        View recyclerView = findViewById(R.id.locationlistLocationListContainer);
-        setupRecyclerView((RecyclerView) recyclerView);
+        locationSpinner = (Spinner) findViewById(R.id.locationListLocationSpinner);
+        locationSpinner.setOnItemSelectedListener(this);
+
+        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationDao.getLocations(this).toArray());
+        locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpinner.setAdapter(locationArrayAdapter);
     }
 
-    private void setupRecyclerView(RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(Database.getInstance(this).getLocations()));
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        location = (Location) parent.getItemAtPosition(position);
     }
 
-    public class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
-        private final List<Location> mValues;
-
-        public SimpleItemRecyclerViewAdapter(List<Location> items) {
-            mValues = items;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.activity_location_list, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = mValues.get(position);
-            holder.mIdView.setText("" + mValues.get(position).getName());
-            holder.mContentView.setText("" + mValues.get(position).getAddress());
-
-            holder.mView.setOnClickListener((v) -> {
-                Context context = v.getContext();
-                Intent intent = new Intent(context, LocationDetailActivity.class);
-                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, holder.mItem.getName());
-
-                context.startActivity(intent);
-            });
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return mValues.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            public final View mView;
-            public final TextView mIdView;
-            public final TextView mContentView;
-            public Location mItem;
-
-            public ViewHolder(View view) {
-                super(view);
-                mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
-                mContentView = (TextView) view.findViewById(R.id.content);
-            }
-
-            @Override
-            public String toString() {
-                return super.toString() + " '" + mContentView.getText() + "' ";
-            }
-        }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        location = null;
     }
 }
