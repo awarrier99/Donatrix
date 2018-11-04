@@ -23,11 +23,12 @@
         </activity>
         <activity android:name=".controllers.RegisterActivity" />
         <activity android:name=".controllers.LoginActivity" />
-<<<<<<< HEAD
-        <activity android:name=".controllers.LocationListActivity"></activity>
-=======
-        <activity android:name=".controllers.DashboardActivity"></activity>
->>>>>>> 23eb58ec435bdb5bc26f5bc440d5c7c7e45f6ee6
+        <activity android:name=".controllers.LocationListActivity" />
+        <activity android:name=".controllers.DashboardActivity" />
+        <activity android:name=".controllers.LocationDetailActivity" />
+        <activity android:name=".controllers.location_list_content" />
+        <activity android:name=".LocationDetailFragment" />
+        <activity android:name=".Location_detail"></activity>
     </application>
 
 </manifest>
