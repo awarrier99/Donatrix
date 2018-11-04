@@ -1,5 +1,6 @@
 package edu.gatech.donatrix.controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,4 +40,15 @@ public class LocationListActivity extends AppCompatActivity implements AdapterVi
     public void onNothingSelected(AdapterView<?> parent) {
         location = null;
     }
+
+    public void onLoginButtonPress(View view) {
+        Intent intent = new Intent(LocationListActivity.this, ItemListActivity.class);
+        intent.putExtra("LocationID", location.getKey());
+        startActivity(intent);
+    }
+
+    public void onBackButtonPress(View view) {
+        finish();
+    }
+
 }
