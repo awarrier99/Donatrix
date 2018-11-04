@@ -41,14 +41,14 @@ public class LocationListActivity extends AppCompatActivity implements AdapterVi
         location = null;
     }
 
-    public void onLoginButtonPress(View view) {
-        Intent intent = new Intent(LocationListActivity.this, ItemListActivity.class);
-        intent.putExtra("LocationID", location.getKey());
-        startActivity(intent);
-    }
 
-    public void onBackButtonPress(View view) {
+    public void onBackButtonPressed(View view) {
         finish();
     }
 
+    public void onChooseButtonPressed(View view) {
+        Intent intent = new Intent(LocationListActivity.this, ItemListActivity.class);
+        intent.putExtra("location_id", location.getKey());
+        startActivity(intent);
+    }
 }
