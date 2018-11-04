@@ -3,6 +3,7 @@ package edu.gatech.donatrix.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
             startActivity(intent);
         } else {
-            Toast toast = new Toast(this);
-            toast.setText("Invalid Login");
+            Toast toast = Toast.makeText(this, "Invalid Login", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }
     }
