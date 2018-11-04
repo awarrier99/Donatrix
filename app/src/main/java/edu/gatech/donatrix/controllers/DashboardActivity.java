@@ -1,5 +1,6 @@
 package edu.gatech.donatrix.controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,5 +17,10 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void onLogoutPressed(View view) {
         finish();
+    }
+
+    public void onLocationListPressed(View view) {
+        Intent intent = new Intent(DashboardActivity.this, LocationListActivity.class);
+        startActivity(intent);
     }
 }

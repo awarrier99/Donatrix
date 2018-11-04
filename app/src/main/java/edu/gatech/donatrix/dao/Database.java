@@ -133,7 +133,6 @@ public class Database {
 
                 while ((line = br.readLine()) != null) {
                     if (counter > 0) {
-                        Log.d("Donatrix", line);
                         String[] info = line.split(",");
                         locationMap.put(Integer.parseInt(info[0]), new Location(info));
                     }
@@ -143,7 +142,7 @@ public class Database {
                 br.close();
                 is.close();
             } catch (Exception e) {
-                Log.d("Donatrix", e.getMessage());
+                Log.d("Zeke", e.getMessage());
             }
         }
     }

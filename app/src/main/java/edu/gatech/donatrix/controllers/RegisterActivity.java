@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
@@ -46,22 +48,27 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         confirmPasswordField = (EditText) findViewById(R.id.registerConfirmPasswordInputText);
         userTypeSpinner = (Spinner) findViewById(R.id.registerUserTypeSpinner);
         locationSpinner = (Spinner) findViewById(R.id.registerLocationSpinner);
+        userTypeSpinner.setOnItemSelectedListener(this);
+        locationSpinner.setOnItemSelectedListener(this);
 
 
         ArrayAdapter<UserType> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, UserType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userTypeSpinner.setAdapter(adapter);
 
-        Log.d("Zeke", Integer.toString(LocationDao.getLocations(this).size()));
-        ArrayAdapter<Location> locationAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationDao.getLocations(this).toArray(new Location[LocationDao.getLocations(this).size()]));
+        ArrayAdapter<Location> locationAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationDao.getLocations(this).toArray());
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        userType = (UserType) parent.getItemAtPosition(position);
-        location = (Location) parent.getItemAtPosition(position);
+        Spinner spinner = (Spinner) parent;
+        if (spinner.getId() == R.id.registerUserTypeSpinner) {
+            userType = (UserType) spinner.getItemAtPosition(position);
+        } else if (spinner.getId() == R.id.registerLocationSpinner){
+            location = (Location) parent.getItemAtPosition(position);
+        }
 
     }
 
@@ -77,25 +84,29 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     }
 
     public void onRegisterPressed(View view) {
-        if (passwordField.equals(confirmPasswordField)) {
-            if (UserDao.checkRegisteredUser(emailField.toString(), passwordField.toString(), this)) {
-                if (userType.equals(UserType.USER)) {
-                    User user = new User(emailField.toString(), passwordField.toString(), nameField.toString(), false, UserType.USER);
+        if (("" + passwordField.getText()).equals(("" + confirmPasswordField.getText()))) {
+            if (!(UserDao.checkRegisteredUser("" + emailField.getText(), "" + passwordField.getText(), this))) {
+                if (userType.getType().equals("USER")) {
+                    User user = new User("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText(), false, UserType.USER);
                     UserDao.registerUser(user, this);
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
-                } else if (userType.equals(UserType.ADMIN)) {
-                    User user = new Admin(emailField.toString(), passwordField.toString(), nameField.toString());
+                } else if (userType.getType().equals("ADMIN")) {
+                    User user = new Admin("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText());
                     UserDao.registerUser(user, this);
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
-                } else if (userType.equals(UserType.LOCATION_EMPLOYEE)) {
-                    User user = new LocationEmployee(emailField.toString(), passwordField.toString(), nameField.toString(), location);
+                } else if (userType.getType().equals("LOCATION_EMPLOYEE")) {
+                    User user = new LocationEmployee("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText(), location);
                     UserDao.registerUser(user, this);
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
             }
+        } else {
+            Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
         }
     }
 

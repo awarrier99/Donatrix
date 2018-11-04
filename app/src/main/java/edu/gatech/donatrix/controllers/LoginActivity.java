@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginPressed(View view) {
-        if (UserDao.checkRegisteredUser(emailField.toString(), passwordField.toString(), this)) {
+        if (UserDao.checkRegisteredUser("" + emailField.getText(), "" + passwordField.getText(), this)) {
             Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
             startActivity(intent);
         } else {
