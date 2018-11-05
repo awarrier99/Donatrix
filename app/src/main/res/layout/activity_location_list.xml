@@ -32,7 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.241" />
 
     <Button
@@ -50,15 +49,7 @@
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" /><![CDATA[
-
-
-=======
-        app:layout_constraintVertical_bias="0.04" />
-
-
-
-    ]]>
+        app:layout_constraintVertical_bias="0.758" />
 
     <Button
         android:id="@+id/locationListChooseButton"
@@ -66,15 +57,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="onChooseButtonPressed"
         android:text="Choose"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.785"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
->>>>>>> eb0f17041dde5762ca5cc9a4bc37c4db5f08b040
+        app:layout_constraintVertical_bias="0.758" />
 </android.support.constraint.ConstraintLayout>
