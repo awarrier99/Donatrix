@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("LOCATION_EMPLOYEE")) {
                 Intent intent = new Intent(LoginActivity.this, LocationEmployeeHomeActivity.class);
+                intent.putExtra("employee_user", "" + emailField.getText());
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(LoginActivity.this, ManagerHomeActivity.class);

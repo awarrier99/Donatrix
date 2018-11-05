@@ -96,9 +96,14 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 } else if (userType.getType().equals("LOCATION_EMPLOYEE")) {
                     User user = new LocationEmployee("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText(), location);
                     UserDao.registerUser(user, this);
+                    LocationDao.addLocationEmployee(user, location, this);
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
+            } else {
+                Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0,0);
+                toast.show();
             }
         } else {
             Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);

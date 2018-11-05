@@ -4,6 +4,7 @@ package edu.gatech.donatrix.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 
 import android.view.View;
@@ -34,6 +35,8 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
 
         intent = getIntent();
         locationId = intent.getIntExtra("location_id", 0);
+        Log.d("Zeke", "" + locationId);
+
         if (locationId == 0) {
             Toast toast = Toast.makeText(this, "Location not passed in", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
@@ -41,14 +44,27 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
             finish();
         } else {
             location = LocationDao.getLocationByID(locationId, this);
+            Log.d("Zeke", location.getName());
         }
 
         itemSpinner = (Spinner) findViewById(R.id.itemListItemSpinner);
         itemSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<Item> itemArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ItemDao.getItemsFromLocation(location, this).toArray());
-        itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        itemSpinner.setAdapter(itemArrayAdapter);
+        try {
+            Log.d("Zeke5", location.getName());
+            ArrayAdapter<Item> itemArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, ItemDao.getItemsFromLocation(location, this).toArray());
+            itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            itemSpinner.setAdapter(itemArrayAdapter);
+        } catch (Exception e) {
+            Log.d("Zeke2", e.getMessage());
+            Toast toast = Toast.makeText(this, "There are no items at this Location", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            Item[] empty = new Item[0];
+            ArrayAdapter<Item> itemArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, empty);
+            itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            itemSpinner.setAdapter(itemArrayAdapter);
+        }
     }
 
     @Override

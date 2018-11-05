@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,10 +30,15 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
     private ItemCategory itemCategory;
     private LocationEmployee employee;
 
+    private Intent intent;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+
+        intent = getIntent();
+        employee = (LocationEmployee) intent.getSerializableExtra("employee");
 
         sDescriptionField = (EditText) findViewById(R.id.addItemSDescription);
         fDescriptionField = (EditText) findViewById(R.id.addItemFDescription);
@@ -78,12 +84,12 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
     }
 
     public void onAddItemPressed(View view) {
+        Log.d("Zeke", employee.getLocation().getName());
         //unsure how to pass in employee to get location data, as of now, var employee has no value
         ItemDao.addItem(employee, "" + sDescriptionField.getText(),  "" +
                 fDescriptionField.getText(), Double.parseDouble(
                 valueField.getText().toString()), itemCategory, "" +
                 commentsField.getText(), this);
-        Intent intent = new Intent(AddItemActivity.this, LocationEmployeeHomeActivity.class);
-        startActivity(intent);
+        finish();
     }
 }

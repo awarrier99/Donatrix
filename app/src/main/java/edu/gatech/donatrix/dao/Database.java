@@ -155,12 +155,12 @@ public class Database {
 //        return locationMap;
 //    }
     public void addItem(Item item, LocationEmployee employee) {
-        ArrayList<Item> items = itemMap.get(employeeMap.get(employee));
+        List<Item> items = itemMap.get(employee.getLocation());
         if (items == null) {
             items = new ArrayList<>();
         }
         items.add(item);
-        itemMap.put(employeeMap.get(employee), items);
+        itemMap.put(employeeMap.get(employee), (ArrayList<Item>) items);
     }
     public User getUser(String username) {
         return userMap.get(username);
@@ -172,6 +172,7 @@ public class Database {
         return locationMap.get(i);
     }
     public List<Item> getItemsFromLocation(Location location) {
+        Log.d("Zeke1", location.toString());
         return itemMap.get(location);
     }
     public List<Item> getAllItems() {
