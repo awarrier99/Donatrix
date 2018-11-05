@@ -3,6 +3,7 @@ package edu.gatech.donatrix.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,6 +47,7 @@ public class LocationListActivity extends AppCompatActivity implements AdapterVi
     }
 
     public void onChooseButtonPressed(View view) {
+        Log.d("Zeke", location.getName());
         Intent intent = new Intent(LocationListActivity.this, ItemListActivity.class);
         intent.putExtra("location_id", location.getKey());
         startActivity(intent);
