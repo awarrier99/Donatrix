@@ -1,9 +1,11 @@
 package edu.gatech.donatrix.controllers;
 
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +23,7 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
     private Location location;
     private Intent intent;
     private int locationId;
+
     private Spinner itemSpinner;
     private Item item;
 
@@ -67,4 +70,5 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
         intent.putExtra("item", item);
         startActivity(intent);
     }
+
 }

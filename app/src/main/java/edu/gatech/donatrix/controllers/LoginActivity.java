@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.UserDao;
+import edu.gatech.donatrix.model.User;
+import edu.gatech.donatrix.model.UserType;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,8 +33,20 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginPressed(View view) {
         if (UserDao.checkRegisteredUser("" + emailField.getText(), "" + passwordField.getText(), this)) {
-            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-            startActivity(intent);
+            if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("USER")) {
+                Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
+                startActivity(intent);
+            } else if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("ADMIN")) {
+                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                startActivity(intent);
+            } else if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("LOCATION_EMPLOYEE")) {
+                Intent intent = new Intent(LoginActivity.this, LocationEmployeeHomeActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(LoginActivity.this, ManagerHomeActivity.class);
+                startActivity(intent);
+            }
+
         } else {
             Toast toast = Toast.makeText(this, "Invalid Login", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);

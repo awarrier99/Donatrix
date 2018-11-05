@@ -42,7 +42,8 @@ public class LocationListActivity extends AppCompatActivity implements AdapterVi
         location = null;
     }
 
-    public void onCancelButtonPressed(View view) {
+
+    public void onBackButtonPressed(View view) {
         finish();
     }
 

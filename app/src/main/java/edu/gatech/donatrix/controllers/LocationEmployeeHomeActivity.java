@@ -7,12 +7,12 @@ import android.view.View;
 
 import edu.gatech.donatrix.R;
 
-public class DashboardActivity extends AppCompatActivity {
+public class LocationEmployeeHomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_dashboard_location_employee);
     }
 
     public void onLogoutPressed(View view) {
@@ -20,7 +20,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     public void onLocationListPressed(View view) {
-        Intent intent = new Intent(DashboardActivity.this, LocationListActivity.class);
+        Intent intent = new Intent(LocationEmployeeHomeActivity.this, LocationListActivity.class);
         startActivity(intent);
     }
 }

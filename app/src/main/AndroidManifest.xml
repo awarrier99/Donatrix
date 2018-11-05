@@ -28,6 +28,7 @@
         <activity android:name=".controllers.LocationListActivity" />
         <activity android:name=".controllers.ItemListActivity" />
         <activity android:name=".controllers.ItemDetailActivity"></activity>
+
     </application>
 
 </manifest>
