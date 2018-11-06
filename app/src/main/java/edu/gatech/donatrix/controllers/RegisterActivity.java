@@ -19,6 +19,7 @@ import edu.gatech.donatrix.dao.UserDao;
 import edu.gatech.donatrix.model.Admin;
 import edu.gatech.donatrix.model.Location;
 import edu.gatech.donatrix.model.LocationEmployee;
+import edu.gatech.donatrix.model.Manager;
 import edu.gatech.donatrix.model.User;
 import edu.gatech.donatrix.model.UserType;
 
@@ -98,6 +99,11 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                     UserDao.registerUser(user, this);
                     LocationDao.addLocationEmployee(user, location, this);
                     Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                } else if (userType.getType().equals("MANAGER")) {
+                    User user = new Manager("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText());
+                    UserDao.registerUser(user, this);
+                    Intent intent = new Intent(RegisterActivity.this, ManagerHomeActivity.class);
                     startActivity(intent);
                 }
             } else {

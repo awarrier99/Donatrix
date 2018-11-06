@@ -82,4 +82,13 @@ public class Item implements Serializable {
         this.comments = comments;
     }
 
+//    @Override
+//    public boolean equals(@androidx.annotation.Nullable Object obj) {
+//        return super.equals(obj);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return super.hashCode();
+//    }
 }
