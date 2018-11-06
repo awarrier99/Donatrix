@@ -3,12 +3,9 @@ package edu.gatech.donatrix.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.UserDao;
-import edu.gatech.donatrix.model.LocationEmployee;
 
 public class LocationEmployeeHomeActivity extends AppCompatActivity {
 
