@@ -19,6 +19,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
 
     private Spinner locationSpinner;
     private Spinner categorySpinner;
+    private Spinner resultSpinner;
 
     private Location location;
     private ItemCategory category;
@@ -32,6 +33,9 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         categorySpinner = (Spinner) findViewById(R.id.itemSearchCategorySpinner);
         locationSpinner.setOnItemSelectedListener(this);
         categorySpinner.setOnItemSelectedListener(this);
+
+        resultSpinner = (Spinner) findViewById(R.id.itemSearchResultSpinner);
+        resultSpinner.setOnItemSelectedListener(this);
 
         List<Location> locList = LocationDao.getLocations(this);
         locList.add(0, null);
@@ -65,5 +69,12 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
 
     public void onCancelButtonPressed(View view) {
         finish();
+    }
+
+    public void onSearchButtonPressed(View view) {
+        String[] result;
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
+        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(stringArrayAdapter);
     }
 }
