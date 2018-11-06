@@ -52,7 +52,7 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
             Map<String, Object> body = new HashMap<>();
             body.put("loc_id", locationId);
 
-            Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/location/getItems", body);
+            Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/location/getItems", body);
             boolean success = (boolean) response.get("success");
 
             if (success) {

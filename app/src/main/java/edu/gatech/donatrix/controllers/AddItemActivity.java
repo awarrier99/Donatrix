@@ -103,7 +103,7 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
         body.put("comments", "" + commentsField.getText());
         body.put("loc_id", locationId);
 
-        Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/addItem", body);
+        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/addItem", body);
         boolean success = (boolean) response.get("success");
         //unsure how to pass in employee to get location data, as of now, var employee has no value
         if (success) {

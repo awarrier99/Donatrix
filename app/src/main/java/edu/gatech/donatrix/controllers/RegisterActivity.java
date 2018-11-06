@@ -93,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             Map<String, Object> body = new HashMap<>();
             body.put("email", "" + emailField.getText());
 
-            Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/checkUser", body);
+            Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/checkUser", body);
             boolean success = (boolean) response.get("success");
 
             if (!success) {
@@ -111,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                     clazz = ManagerHomeActivity.class;
                 }
 
-                response = RESTCaller.post("http://10.0.2.2:3000/register", body);
+                response = RESTCaller.post("https://donatrix-api.herokuapp.com/register", body);
                 success = (boolean) response.get("success");
 
                 if (success) {

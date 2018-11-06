@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         body.put("email", "" + emailField.getText());
         body.put("password", "" + passwordField.getText());
 
-        Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/login", body);
+        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/login", body);
         boolean success = (boolean) response.get("success");
         Map<String, Object> user = (Map<String, Object>) response.get("user");
 
