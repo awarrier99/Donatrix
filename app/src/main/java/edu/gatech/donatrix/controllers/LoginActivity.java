@@ -2,16 +2,18 @@ package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.UserDao;
-import edu.gatech.donatrix.model.User;
-import edu.gatech.donatrix.model.UserType;
+import edu.gatech.donatrix.data.RESTCaller;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -23,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         emailField = (EditText) findViewById(R.id.loginEmailTextField);
         passwordField = (EditText) findViewById(R.id.loginPasswordTextField);
     }
@@ -32,14 +37,23 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginPressed(View view) {
-        if (UserDao.checkRegisteredUser("" + emailField.getText(), "" + passwordField.getText(), this)) {
-            if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("USER")) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("email", "" + emailField.getText());
+        body.put("password", "" + passwordField.getText());
+
+        Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/login", body);
+        boolean success = (boolean) response.get("success");
+        Map<String, Object> user = (Map<String, Object>) response.get("user");
+
+        if (success) {
+            String type = (String) user.get("type");
+            if (type.equals("USER")) {
                 Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
                 startActivity(intent);
-            } else if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("ADMIN")) {
+            } else if (type.equals("ADMIN")) {
                 Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                 startActivity(intent);
-            } else if (UserDao.getUser("" + emailField.getText(), this).getUserType().getType().equals("LOCATION_EMPLOYEE")) {
+            } else if (type.equals("LOCATION_EMPLOYEE")) {
                 Intent intent = new Intent(LoginActivity.this, LocationEmployeeHomeActivity.class);
                 intent.putExtra("employee_user", "" + emailField.getText());
                 startActivity(intent);

@@ -6,7 +6,7 @@ import android.content.Context;
 
 
 public class LocationEmployee extends User {
-    Location location;
+    private Location location;
 
     public LocationEmployee(String email, String password, String name, Location location) {
         super(email, password, name, false, UserType.LOCATION_EMPLOYEE);
