@@ -25,6 +25,7 @@ import edu.gatech.donatrix.data.RESTCaller;
 public class ItemListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private Intent intent;
     private int locationId;
+    private boolean allItems;
 
     private Spinner itemSpinner;
     private String item;
@@ -37,6 +38,7 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
 
         intent = getIntent();
         locationId = intent.getIntExtra("location_id", 0);
+        allItems = intent.getBooleanExtra("all_items", false);
 
         if (locationId == 0) {
             Toast toast = Toast.makeText(this, "Location not passed in", Toast.LENGTH_SHORT);
@@ -52,7 +54,13 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
             Map<String, Object> body = new HashMap<>();
             body.put("loc_id", locationId);
 
-            Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/location/getItems", body);
+            Map<String, Object> response = new HashMap<>();
+            if (!allItems) {
+                response = RESTCaller.post("https://donatrix-api.herokuapp.com/location/getItems", body);
+            } else {
+                response = RESTCaller.get("https://donatrix-api.herokuapp.com/allItems");
+            }
+
             boolean success = (boolean) response.get("success");
 
             if (success) {
