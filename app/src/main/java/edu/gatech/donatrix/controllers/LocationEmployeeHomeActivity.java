@@ -47,4 +47,9 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
         intent.putExtra("all_items", true);
         startActivity(intent);
     }
+
+    public void onSearchItemsPressed(View view) {
+        Intent intent = new Intent(LocationEmployeeHomeActivity.this, ItemSearchActivity.class);
+        startActivity(intent);
+    }
 }
