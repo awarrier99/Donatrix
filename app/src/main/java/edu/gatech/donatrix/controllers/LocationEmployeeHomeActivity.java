@@ -37,6 +37,14 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
     public void onShowItemsButtonPressed(View view) {
         Intent intent = new Intent(LocationEmployeeHomeActivity.this, ItemListActivity.class);
         intent.putExtra("location_id", locationId);
+        intent.putExtra("all_items", false);
+        startActivity(intent);
+    }
+
+    public void onShowAllItemsPressed(View view) {
+        Intent intent = new Intent(LocationEmployeeHomeActivity.this, ItemListActivity.class);
+        intent.putExtra("location_id", locationId);
+        intent.putExtra("all_items", true);
         startActivity(intent);
     }
 }
