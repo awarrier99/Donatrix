@@ -23,6 +23,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
 
     private Spinner locationSpinner;
     private Spinner categorySpinner;
+    private Spinner resultSpinner;
 
     private Location location;
     private ItemCategory category;
@@ -38,6 +39,8 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         categorySpinner.setOnItemSelectedListener(this);
 
         Log.d("Donatrix", "Hello");
+        resultSpinner = (Spinner) findViewById(R.id.itemSearchResultSpinner);
+        resultSpinner.setOnItemSelectedListener(this);
         List<Location> locList = LocationDao.getLocations(this);
         locList.add(0, null);
         ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locList.toArray());
@@ -77,5 +80,12 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
 
     public void onCancelButtonPressed(View view) {
         finish();
+    }
+
+    public void onSearchButtonPressed(View view) {
+        String[] result;
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
+        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(stringArrayAdapter);
     }
 }
