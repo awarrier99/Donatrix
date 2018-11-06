@@ -33,7 +33,8 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     private Location location;
     private String category;
 
-    private static Location emptyLocation = new Location("");
+    private List<Location> locations;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         resultSpinner.setOnItemSelectedListener(this);
 
         List<Location>  locList = LocationDao.getLocations(this);
+        locations = locList;
         List<String> locs = new ArrayList<>();
         for (Location loc: locList) {
             locs.add(loc.getName());
@@ -75,7 +77,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         Log.d("Donatrix", "Hello4");
 
         String[] result = new String[1];
-        result[0] = "Hey";
+        result[0] = "";
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resultSpinner.setAdapter(stringArrayAdapter);
@@ -87,7 +89,16 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         try {
             Spinner spinner = (Spinner) parent;
             if (spinner.getId() == R.id.itemSearchLocationSpinner) {
-                location = (Location) spinner.getItemAtPosition(position);
+                boolean changed = false;
+                for (Location loc: locations) {
+                    if (loc.getName().equals((String) spinner.getItemAtPosition(position))) {
+                        location = loc;
+                        changed = true;
+                    }
+                }
+                if (!changed) {
+                    location = null;
+                }
             } else if (spinner.getId() == R.id.itemSearchCategorySpinner) {
                 category = (String) spinner.getItemAtPosition(position);
             } else if (spinner.getId() == R.id.itemSearchResultSpinner) {
@@ -112,7 +123,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
 
     public void onSearchButtonPressed(View view) {
         Map<String, Object> body = new HashMap<>();
-        if (location.getName().length() > 0) {
+        if (location != null) {
             body.put("loc_id", location.getKey());
         }
         if (category.length() > 0) {
@@ -121,14 +132,19 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         if (("" + nameText.getText()).length() > 0) {
             body.put("sDesc", "" + nameText.getText());
         }
-        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/filtered/getItems", body);
-        List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
-        List<String> result = new ArrayList<>();
-        for (Map m: res) {
-            result.add((String) m.get("sDesc"));
+        Log.d("Donatrix", body.toString());
+        Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/filtered/getItems", body);
+        boolean success = (boolean) response.get("success");
+        if (success) {
+            List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
+            List<String> result = new ArrayList<>();
+            for (Map m : res) {
+                Log.d("Donatrix", m.toString());
+                result.add((String) m.get("s_description"));
+            }
+            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result.toArray());
+            stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            resultSpinner.setAdapter(stringArrayAdapter);
         }
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result.toArray());
-        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        resultSpinner.setAdapter(stringArrayAdapter);
     }
 }
