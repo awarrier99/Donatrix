@@ -46,7 +46,11 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
     }
 
     public void onSearchItemsPressed(View view) {
-        Intent intent = new Intent(LocationEmployeeHomeActivity.this, ItemSearchActivity.class);
-        startActivity(intent);
+        try {
+            Intent intent = new Intent(this, ItemSearchActivity.class);
+            startActivity(intent);
+        } catch (Exception e) {
+            Log.d("Donatrix", e.getMessage());
+        }
     }
 }

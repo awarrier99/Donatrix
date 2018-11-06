@@ -20,7 +20,7 @@ public class Location implements Serializable {
     private ItemManager inventory;
 
     public Location(String name) {
-        this.setName(name);
+        this.name = name;
     }
 
     public Location(String[] info) {
