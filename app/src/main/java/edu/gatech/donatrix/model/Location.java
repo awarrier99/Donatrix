@@ -19,6 +19,10 @@ public class Location implements Serializable {
     private String website;
     private ItemManager inventory;
 
+    public Location(String name) {
+        this.name = name;
+    }
+
     public Location(String[] info) {
         this.key = Integer.parseInt(info[0]);
         this.setName(info[1]);

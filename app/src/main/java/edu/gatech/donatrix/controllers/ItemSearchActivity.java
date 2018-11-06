@@ -26,7 +26,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     private Spinner resultSpinner;
 
     private Location location;
-    private ItemCategory category;
+    private String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,14 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         Log.d("Donatrix", "Hello");
         resultSpinner = (Spinner) findViewById(R.id.itemSearchResultSpinner);
         resultSpinner.setOnItemSelectedListener(this);
-        List<Location> locList = LocationDao.getLocations(this);
-        locList.add(0, null);
-        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locList.toArray());
+
+        List<Location>  locList = LocationDao.getLocations(this);
+        List<String> locs = new ArrayList<>();
+        for (Location loc: locList) {
+            locs.add(loc.getName());
+        }
+        locs.add(0, "");
+        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locs.toArray());
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
 
@@ -60,22 +65,36 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         Log.d("Donatrix", "Hello5");
         categorySpinner.setAdapter(itemCategoryArrayAdapter);
         Log.d("Donatrix", "Hello4");
+
+        String[] result = new String[1];
+        result[0] = "Hey";
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
+        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(stringArrayAdapter);
+        Log.d("Donatrix", "Hello6");
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Spinner spinner = (Spinner) parent;
-        if (spinner.getId() == R.id.itemSearchLocationSpinner) {
-            location = (Location) spinner.getItemAtPosition(position);
-        } else if (spinner.getId() == R.id.itemSearchCategorySpinner) {
-            category = (ItemCategory) spinner.getItemAtPosition(position);
-        }
+//        try {
+//            Spinner spinner = (Spinner) parent;
+//            if (spinner.getId() == R.id.itemSearchLocationSpinner) {
+//                location = (Location) spinner.getItemAtPosition(position);
+//            } else if (spinner.getId() == R.id.itemSearchCategorySpinner) {
+//                category = (String) spinner.getItemAtPosition(position);
+//            } else if (spinner.getId() == R.id.itemSearchResultSpinner) {
+//
+//            }
+//            Log.d("Donatrix", "Please Print");
+//        } catch (Exception e ) {
+//            Log.d("Donatrix", e.getMessage());
+//        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        category = null;
-        location = null;
+//        category = null;
+//        location = null;
     }
 
     public void onCancelButtonPressed(View view) {
@@ -83,7 +102,8 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     }
 
     public void onSearchButtonPressed(View view) {
-        String[] result;
+        String[] result = new String[1];
+        result[0] = "Hey";
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resultSpinner.setAdapter(stringArrayAdapter);
