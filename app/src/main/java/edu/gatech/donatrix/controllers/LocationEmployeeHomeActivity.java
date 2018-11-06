@@ -12,7 +12,7 @@ import edu.gatech.donatrix.model.LocationEmployee;
 
 public class LocationEmployeeHomeActivity extends AppCompatActivity {
 
-    private LocationEmployee employee;
+    private int locationId;
     private Intent intent;
 
     @Override
@@ -21,7 +21,7 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard_location_employee);
 
         intent = getIntent();
-        employee = (LocationEmployee) UserDao.getUser(intent.getStringExtra("employee_user"), this);
+        locationId = intent.getIntExtra("location_id", 0);
     }
 
     public void onLogoutPressed(View view) {
@@ -30,14 +30,13 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
 
     public void onAddItemPressed(View view) {
         Intent intent = new Intent(LocationEmployeeHomeActivity.this, AddItemActivity.class);
-        intent.putExtra("employee", employee);
+        intent.putExtra("location_id", locationId);
         startActivity(intent);
     }
 
     public void onShowItemsButtonPressed(View view) {
-        Log.d("Zeke", employee.getName());
         Intent intent = new Intent(LocationEmployeeHomeActivity.this, ItemListActivity.class);
-        intent.putExtra("location_id", employee.getLocation().getKey());
+        intent.putExtra("location_id", locationId);
         startActivity(intent);
     }
 }

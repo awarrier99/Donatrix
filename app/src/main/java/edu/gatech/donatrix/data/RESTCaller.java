@@ -5,9 +5,6 @@ import android.util.Log;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -53,7 +50,7 @@ public class RESTCaller {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(conn.getInputStream(), new TypeReference<Map<String, Object>>(){});
         } catch (Exception e) {
-            Log.d("Donatrix", "An error occurred while trying to log in", e);
+            Log.d("Donatrix", "An error occurred while trying to make the API call", e);
             return new HashMap<>();
         }
     }

@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if (type.equals("LOCATION_EMPLOYEE")) {
                 Intent intent = new Intent(LoginActivity.this, LocationEmployeeHomeActivity.class);
-                intent.putExtra("employee_user", "" + emailField.getText());
+                intent.putExtra("location_id", (int) user.get("loc_id"));
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(LoginActivity.this, ManagerHomeActivity.class);

@@ -1,6 +1,7 @@
 package edu.gatech.donatrix.model;
 
 import java.sql.Timestamp;
+import java.util.Map;
 
 import android.content.Context;
 
@@ -12,6 +13,11 @@ public class LocationEmployee extends User {
         super(email, password, name, false, UserType.LOCATION_EMPLOYEE);
         this.location = location;
     }
+
+//    public LocationEmployee(Map<String, Object> map) {
+//        super((String) map.get("email"), (String) map.get("password"), (String) map.get("name"), (int) map.get("locked") != 0, UserType.valueOf((String) map.get("type")));
+//
+//    }
 
     public Location getLocation() {
         return this.location;
