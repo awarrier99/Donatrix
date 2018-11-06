@@ -133,7 +133,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             body.put("sDesc", "" + nameText.getText());
         }
         Log.d("Donatrix", body.toString());
-        Map<String, Object> response = RESTCaller.post("http://10.0.2.2:3000/filtered/getItems", body);
+        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/filtered/getItems", body);
         boolean success = (boolean) response.get("success");
         if (success) {
             List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
