@@ -19,8 +19,6 @@ import edu.gatech.donatrix.model.Location;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,18 +41,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
 
-        final Database dataServie = Database.getInstance(this);
+        final Database dataService = Database.getInstance(this);
 
-        List<Location> dataList = dataServie.getLocations();
+        List<Location> dataList = dataService.getLocations();
 
         for (Location de: dataList) {
             LatLng loc = new LatLng(Double.parseDouble(de.getLatitude()), Double.parseDouble(de.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
 //        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());

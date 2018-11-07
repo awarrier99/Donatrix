@@ -32,12 +32,9 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
     private EditText fDescriptionField;
     private EditText valueField;
     private EditText commentsField;
-    private Spinner itemCategorySpinner;
 
     private ItemCategory itemCategory;
     private int locationId;
-
-    private Intent intent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,25 +44,21 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        intent = getIntent();
+        Intent intent = getIntent();
         locationId = intent.getIntExtra("location_id", 0);
 
         sDescriptionField = (EditText) findViewById(R.id.addItemSDescription);
         fDescriptionField = (EditText) findViewById(R.id.addItemFDescription);
         valueField = (EditText) findViewById(R.id.addItemValue);
         commentsField = (EditText) findViewById(R.id.addItemComments);
-        itemCategorySpinner = (Spinner) findViewById(R.id.addItemCategory);
+        Spinner itemCategorySpinner = (Spinner) findViewById(R.id.addItemCategory);
         itemCategorySpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<ItemCategory> adapter = new ArrayAdapter<ItemCategory>(this, android.R.layout.simple_spinner_item,
                 ItemCategory.values()){
             @Override
             public boolean isEnabled(int position) {
-                if (position == 0) {
-                    return false;
-                } else {
-                    return true;
-                }
+                return position != 0;
             }
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {

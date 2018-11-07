@@ -8,7 +8,7 @@ public enum UserType implements Serializable {
     MANAGER("MANAGER"),
     USER("USER");
 
-    private String type;
+    private final String type;
 
     UserType(String type) {
         this.type = type;

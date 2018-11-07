@@ -11,14 +11,13 @@ import edu.gatech.donatrix.R;
 public class LocationEmployeeHomeActivity extends AppCompatActivity {
 
     private int locationId;
-    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_location_employee);
 
-        intent = getIntent();
+        Intent intent = getIntent();
         locationId = intent.getIntExtra("location_id", 0);
     }
 

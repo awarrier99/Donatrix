@@ -7,7 +7,7 @@ public enum LocationType implements Serializable {
     STORE("STORE"),
     WAREHOUSE("WAREHOUSE");
 
-    private String type;
+    private final String type;
 
     public String getType() {
         return this.type;

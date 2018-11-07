@@ -10,7 +10,7 @@ public enum ItemCategory implements Serializable {
     HOUSEHOLD("Household"),
     OTHER("Other");
 
-    private String category;
+    private final String category;
 
     ItemCategory(String category) {
         this.category = category;

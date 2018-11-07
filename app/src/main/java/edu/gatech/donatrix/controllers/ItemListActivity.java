@@ -23,11 +23,7 @@ import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
 
 public class ItemListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private Intent intent;
-    private int locationId;
-    private boolean allItems;
 
-    private Spinner itemSpinner;
     private String item;
     private List<Map<String, Object>> items;
 
@@ -36,9 +32,9 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
-        intent = getIntent();
-        locationId = intent.getIntExtra("location_id", 0);
-        allItems = intent.getBooleanExtra("all_items", false);
+        Intent intent = getIntent();
+        int locationId = intent.getIntExtra("location_id", 0);
+        boolean allItems = intent.getBooleanExtra("all_items", false);
 
         if (locationId == 0) {
             Toast toast = Toast.makeText(this, "Location not passed in", Toast.LENGTH_SHORT);
@@ -47,7 +43,7 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
             finish();
         }
 
-        itemSpinner = (Spinner) findViewById(R.id.itemListItemSpinner);
+        Spinner itemSpinner = (Spinner) findViewById(R.id.itemListItemSpinner);
         itemSpinner.setOnItemSelectedListener(this);
 
         try {

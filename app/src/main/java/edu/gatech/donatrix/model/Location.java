@@ -41,7 +41,7 @@ public class Location implements Serializable {
         return key;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -49,7 +49,7 @@ public class Location implements Serializable {
         return name;
     }
 
-    public void setLatitude(String latitude) {
+    private void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
@@ -57,7 +57,7 @@ public class Location implements Serializable {
         return latitude;
     }
 
-    public void setLongitude(String longitude) {
+    private void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
@@ -65,7 +65,7 @@ public class Location implements Serializable {
         return longitude;
     }
 
-    public void setAddress(String address) {
+    private void setAddress(String address) {
         this.address = address;
     }
 
@@ -73,7 +73,7 @@ public class Location implements Serializable {
         return address;
     }
 
-    public void setCity(String city) {
+    private void setCity(String city) {
         this.city = city;
     }
 
@@ -81,7 +81,7 @@ public class Location implements Serializable {
         return city;
     }
 
-    public void setState(String state) {
+    private void setState(String state) {
         this.state = state;
     }
 
@@ -89,7 +89,7 @@ public class Location implements Serializable {
         return state;
     }
 
-    public void setZip(String zip) {
+    private void setZip(String zip) {
         this.zip = zip;
     }
 
@@ -97,7 +97,7 @@ public class Location implements Serializable {
         return zip;
     }
 
-    public void setLocationType(LocationType locationType) {
+    private void setLocationType(LocationType locationType) {
         this.locationType = locationType;
     }
 
@@ -105,7 +105,7 @@ public class Location implements Serializable {
         return locationType;
     }
 
-    public void setNumber(String number) {
+    private void setNumber(String number) {
         this.number = number;
     }
 
@@ -113,7 +113,7 @@ public class Location implements Serializable {
         return number;
     }
 
-    public void setWebsite(String website) {
+    private void setWebsite(String website) {
         this.website = website;
     }
 
@@ -135,7 +135,7 @@ public class Location implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof Location)) {
+        if (!(obj instanceof Location)) {
             return false;
         } else {
             return this.key == ((Location) obj).key && this.address.equals(((Location) obj).address) && this.latitude.equals(((Location) obj).latitude) && this.city.equals(((Location) obj).city) && this.locationType == ((Location) obj).locationType && this.name.equals(((Location) obj).name) && this.longitude.equals(((Location) obj).longitude) && this.number.equals(((Location) obj).number) && this.state.equals(((Location) obj).state) && this.website.equals(((Location) obj).website) && this.zip.equals(((Location) obj).zip);
