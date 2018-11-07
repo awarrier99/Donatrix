@@ -19,6 +19,10 @@ public class Location implements Serializable {
     private String website;
     private ItemManager inventory;
 
+    public Location(String name) {
+        this.name = name;
+    }
+
     public Location(String[] info) {
         this.key = Integer.parseInt(info[0]);
         this.setName(info[1]);
@@ -127,5 +131,19 @@ public class Location implements Serializable {
     @Override
     public String toString() {
         return String.format("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s", name, latitude, longitude, address, city, state, zip, locationType.getType(), number, website);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof Location)) {
+            return false;
+        } else {
+            return this.key == ((Location) obj).key && this.address.equals(((Location) obj).address) && this.latitude.equals(((Location) obj).latitude) && this.city.equals(((Location) obj).city) && this.locationType == ((Location) obj).locationType && this.name.equals(((Location) obj).name) && this.longitude.equals(((Location) obj).longitude) && this.number.equals(((Location) obj).number) && this.state.equals(((Location) obj).state) && this.website.equals(((Location) obj).website) && this.zip.equals(((Location) obj).zip);
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return this.key * this.name.length();
     }
 }

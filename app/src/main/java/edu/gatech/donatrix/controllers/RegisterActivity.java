@@ -2,6 +2,7 @@ package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -11,11 +12,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
 import edu.gatech.donatrix.dao.UserDao;
+import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.Admin;
 import edu.gatech.donatrix.model.Location;
 import edu.gatech.donatrix.model.LocationEmployee;
@@ -39,6 +43,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         nameField = (EditText) findViewById(R.id.registerNameInputText);
         emailField = (EditText) findViewById(R.id.registerEmailInputText);
@@ -83,28 +90,37 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
     public void onRegisterPressed(View view) {
         if (("" + passwordField.getText()).equals(("" + confirmPasswordField.getText()))) {
-            if (!(UserDao.checkRegisteredUser("" + emailField.getText(), "" + passwordField.getText(), this))) {
-                if (userType.getType().equals("USER")) {
-                    User user = new User("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText(), false, UserType.USER);
-                    UserDao.registerUser(user, this);
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                } else if (userType.getType().equals("ADMIN")) {
-                    User user = new Admin("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText());
-                    UserDao.registerUser(user, this);
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                } else if (userType.getType().equals("LOCATION_EMPLOYEE")) {
-                    User user = new LocationEmployee("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText(), location);
-                    UserDao.registerUser(user, this);
-                    LocationDao.addLocationEmployee(user, location, this);
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
+            Map<String, Object> body = new HashMap<>();
+            body.put("email", "" + emailField.getText());
+
+            Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/checkUser", body);
+            boolean success = (boolean) response.get("success");
+
+            if (!success) {
+                body.put("password", "" + passwordField.getText());
+                body.put("name", "" + nameField.getText());
+                body.put("locked", 0);
+                body.put("type", userType.getType());
+
+                Class clazz = LoginActivity.class;
+
+                if (userType.getType().equals("LOCATION_EMPLOYEE")) {
+                    body.put("loc_id", location.getKey());
+
                 } else if (userType.getType().equals("MANAGER")) {
-                    User user = new Manager("" + emailField.getText(), "" + passwordField.getText(), "" + nameField.getText());
-                    UserDao.registerUser(user, this);
-                    Intent intent = new Intent(RegisterActivity.this, ManagerHomeActivity.class);
+                    clazz = ManagerHomeActivity.class;
+                }
+
+                response = RESTCaller.post("https://donatrix-api.herokuapp.com/register", body);
+                success = (boolean) response.get("success");
+
+                if (success) {
+                    Intent intent = new Intent(RegisterActivity.this, clazz);
                     startActivity(intent);
+                } else {
+                    Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0,0);
+                    toast.show();
                 }
             } else {
                 Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
@@ -112,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 toast.show();
             }
         } else {
-            Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }

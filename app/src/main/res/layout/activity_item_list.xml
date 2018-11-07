@@ -54,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="58dp"
+        android:onClick="onDetailsButtonPressed"
         android:text="Details"
         app:layout_constraintBaseline_toBaselineOf="@+id/itemListCancelButton"
         app:layout_constraintEnd_toEndOf="parent" />
