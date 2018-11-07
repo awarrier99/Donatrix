@@ -25,8 +25,6 @@ import edu.gatech.donatrix.model.Location;
 
 public class ItemSearchActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private Spinner locationSpinner;
-    private Spinner categorySpinner;
     private EditText nameText;
     private Spinner resultSpinner;
 
@@ -41,8 +39,8 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_search);
 
-        locationSpinner = (Spinner) findViewById(R.id.itemSearchLocationSpinner);
-        categorySpinner = (Spinner) findViewById(R.id.itemSearchCategorySpinner);
+        Spinner locationSpinner = (Spinner) findViewById(R.id.itemSearchLocationSpinner);
+        Spinner categorySpinner = (Spinner) findViewById(R.id.itemSearchCategorySpinner);
         locationSpinner.setOnItemSelectedListener(this);
         categorySpinner.setOnItemSelectedListener(this);
         nameText = (EditText) findViewById(R.id.editText);

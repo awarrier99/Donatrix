@@ -16,16 +16,13 @@ import edu.gatech.donatrix.model.Item;
 
 public class ItemDetailActivity extends AppCompatActivity {
 
-    private Map<String, Object> item;
-    private Intent intent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
 
-        intent = getIntent();
-        item = (Map<String, Object>) intent.getSerializableExtra("item");
+        Intent intent = getIntent();
+        Map<String, Object> item = (Map<String, Object>) intent.getSerializableExtra("item");
 
         TextView sDescText = (TextView) findViewById(R.id.textView3);
         TextView fDescText = (TextView) findViewById(R.id.textView5);

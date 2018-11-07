@@ -33,8 +33,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     private EditText emailField;
     private EditText passwordField;
     private EditText confirmPasswordField;
-    private Spinner userTypeSpinner;
-    private Spinner locationSpinner;
 
     private UserType userType;
     private Location location;
@@ -51,8 +49,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         emailField = (EditText) findViewById(R.id.registerEmailInputText);
         passwordField = (EditText) findViewById(R.id.registerPasswordInputText);
         confirmPasswordField = (EditText) findViewById(R.id.registerConfirmPasswordInputText);
-        userTypeSpinner = (Spinner) findViewById(R.id.registerUserTypeSpinner);
-        locationSpinner = (Spinner) findViewById(R.id.registerLocationSpinner);
+        Spinner userTypeSpinner = (Spinner) findViewById(R.id.registerUserTypeSpinner);
+        Spinner locationSpinner = (Spinner) findViewById(R.id.registerLocationSpinner);
         userTypeSpinner.setOnItemSelectedListener(this);
         locationSpinner.setOnItemSelectedListener(this);
 

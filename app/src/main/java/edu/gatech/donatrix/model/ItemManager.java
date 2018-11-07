@@ -3,8 +3,8 @@ package edu.gatech.donatrix.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemManager {
-    private List<Item> items;
+class ItemManager {
+    private final List<Item> items;
 
     public ItemManager() {
         this.items = new ArrayList<>();

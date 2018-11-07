@@ -31,10 +31,10 @@ public class Database {
     private static Map<Location, ArrayList<Item>> itemMap;
     private static Map<LocationEmployee, Location> employeeMap;
 
-    public static final String USER = "USERS";
-    public static final String LOC = "LOCATION";
-    public static final String INVENTORY = "IMVENTORY";
-    public static final String EMPLOYEE = "EMPLOYEE";
+    private static final String USER = "USERS";
+    private static final String LOC = "LOCATION";
+    private static final String INVENTORY = "INVENTORY";
+    private static final String EMPLOYEE = "EMPLOYEE";
 
     public static Database getInstance(Context context) {
         if (Database.ourInstance != null) {
