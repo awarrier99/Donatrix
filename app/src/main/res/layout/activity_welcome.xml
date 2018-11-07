@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2d2d2d"
+    android:background="@drawable/blurredstreet"
+    android:fitsSystemWindows="true"
     tools:context=".controllers.WelcomeActivity">
 
     <ImageView
@@ -19,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36"
+        app:layout_constraintVertical_bias="0.388"
         app:srcCompat="@drawable/logo" />
 
     <Button
