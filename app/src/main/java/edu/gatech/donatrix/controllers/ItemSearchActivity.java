@@ -33,6 +33,9 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     private Location location;
     private String category;
 
+    private List<Location> locations;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         resultSpinner.setOnItemSelectedListener(this);
 
         List<Location>  locList = LocationDao.getLocations(this);
+        locations = locList;
         List<String> locs = new ArrayList<>();
         for (Location loc: locList) {
             locs.add(loc.getName());
@@ -61,7 +65,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         Log.d("Donatrix", "Hello2");
         ItemCategory[] itemCategoryArray = ItemCategory.values();
         List<String> categories = new ArrayList<>();
-        for (ItemCategory i: itemCategoryArray) {
+        for (ItemCategory i : itemCategoryArray) {
             categories.add(i.getCategory());
         }
         categories.add(0, "");
@@ -85,7 +89,16 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         try {
             Spinner spinner = (Spinner) parent;
             if (spinner.getId() == R.id.itemSearchLocationSpinner) {
-                location = (Location) spinner.getItemAtPosition(position);
+                boolean changed = false;
+                for (Location loc: locations) {
+                    if (loc.getName().equals((String) spinner.getItemAtPosition(position))) {
+                        location = loc;
+                        changed = true;
+                    }
+                }
+                if (!changed) {
+                    location = null;
+                }
             } else if (spinner.getId() == R.id.itemSearchCategorySpinner) {
                 category = (String) spinner.getItemAtPosition(position);
             } else if (spinner.getId() == R.id.itemSearchResultSpinner) {
@@ -102,7 +115,6 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     public void onNothingSelected(AdapterView<?> parent) {
         category = "";
         location = null;
-
     }
 
     public void onCancelButtonPressed(View view) {
@@ -120,14 +132,19 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         if (("" + nameText.getText()).length() > 0) {
             body.put("sDesc", "" + nameText.getText());
         }
+        Log.d("Donatrix", body.toString());
         Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/filtered/getItems", body);
-        List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
-        List<String> result = new ArrayList<>();
-        for (Map m: res) {
-            result.add((String) m.get("sDesc"));
+        boolean success = (boolean) response.get("success");
+        if (success) {
+            List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
+            List<String> result = new ArrayList<>();
+            for (Map m : res) {
+                Log.d("Donatrix", m.toString());
+                result.add((String) m.get("s_description"));
+            }
+            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result.toArray());
+            stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            resultSpinner.setAdapter(stringArrayAdapter);
         }
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result.toArray());
-        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        resultSpinner.setAdapter(stringArrayAdapter);
     }
 }
