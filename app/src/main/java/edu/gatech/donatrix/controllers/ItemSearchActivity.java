@@ -73,7 +73,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         Log.d("Donatrix", "Hello4");
 
         String[] result = new String[1];
-        result[0] = "Hey";
+        result[0] = "";
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resultSpinner.setAdapter(stringArrayAdapter);
