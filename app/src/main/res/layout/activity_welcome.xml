@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="126dp"
+        android:layout_width="344dp"
+        android:layout_height="143dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -20,43 +20,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388"
+        app:layout_constraintVertical_bias="0.39"
         app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="244dp"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/login_button"
+        android:fontFamily="sans-serif-regular"
         android:onClick="onLoginPressed"
         android:text="Login"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:background="#065684"
+        android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="1dp"
+        android:background="@drawable/register_button"
+        android:fontFamily="sans-serif-regular"
         android:onClick="onRegisterPressed"
         android:text="Register"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:background="#009110"
+        android:textSize="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.832" />
+        app:layout_constraintVertical_bias="0.899" />
 
 </android.support.constraint.ConstraintLayout>

@@ -54,7 +54,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         userTypeSpinner.setOnItemSelectedListener(this);
         locationSpinner.setOnItemSelectedListener(this);
 
-
         ArrayAdapter<UserType> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, UserType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userTypeSpinner.setAdapter(adapter);
@@ -131,9 +130,4 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             toast.show();
         }
     }
-
-    public void onCancelPressed(View view) {
-        finish();
-    }
-
 }

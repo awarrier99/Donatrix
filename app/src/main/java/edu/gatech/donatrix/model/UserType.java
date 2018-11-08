@@ -3,10 +3,10 @@ package edu.gatech.donatrix.model;
 import java.io.Serializable;
 
 public enum UserType implements Serializable {
-    ADMIN("ADMIN"),
+    USER("USER"),
     LOCATION_EMPLOYEE("LOCATION_EMPLOYEE"),
     MANAGER("MANAGER"),
-    USER("USER");
+    ADMIN("ADMIN");
 
     private final String type;
 

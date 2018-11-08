@@ -16,4 +16,6 @@
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="title_activity_item_list">ItemListActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="prompt_user_type">Please select User Type</string>
+    <string name="prompt_location">Please select a Location</string>
 </resources>
