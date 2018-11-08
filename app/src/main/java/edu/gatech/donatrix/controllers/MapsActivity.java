@@ -2,6 +2,7 @@ package edu.gatech.donatrix.controllers;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -41,17 +42,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        GoogleMap mMap = googleMap;
 
-        googleMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
 
         final Database dataService = Database.getInstance(this);
 
         List<Location> dataList = dataService.getLocations();
+        Log.d("Zeke", dataList.get(0).getName());
 
         for (Location de: dataList) {
             LatLng loc = new LatLng(Double.parseDouble(de.getLatitude()), Double.parseDouble(de.getLongitude()));
-            googleMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            mMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
 //        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());

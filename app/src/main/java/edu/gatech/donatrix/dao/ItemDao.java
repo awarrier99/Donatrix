@@ -14,7 +14,7 @@ import edu.gatech.donatrix.model.ItemCategory;
 import edu.gatech.donatrix.model.Location;
 import edu.gatech.donatrix.model.LocationEmployee;
 
-class ItemDao {
+public class ItemDao {
 
     public static void addItem(LocationEmployee employee, String sDescription, String fDescription,
                                double value, ItemCategory category, String comments, Context context) {

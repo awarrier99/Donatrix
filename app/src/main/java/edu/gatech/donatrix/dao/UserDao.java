@@ -5,7 +5,7 @@ import android.content.Context;
 import edu.gatech.donatrix.model.User;
 
 
-class UserDao {
+public class UserDao {
     public static void registerUser(User user, Context context) throws IllegalArgumentException {
         Database.getInstance(context).registerUser(user, context);
     }
