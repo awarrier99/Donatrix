@@ -1,5 +1,6 @@
 package edu.gatech.donatrix.controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,10 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +35,9 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     private String category;
 
     private List<Location> locations;
+
+    private String item;
+    private List<Map<String, Object>> items;
 
 
     @Override
@@ -100,7 +106,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             } else if (spinner.getId() == R.id.itemSearchCategorySpinner) {
                 category = (String) spinner.getItemAtPosition(position);
             } else if (spinner.getId() == R.id.itemSearchResultSpinner) {
-
+                item = (String) spinner.getItemAtPosition(position);
             }
             Log.d("Donatrix", "Please Print");
         } catch (Exception e ) {
@@ -135,6 +141,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         boolean success = (boolean) response.get("success");
         if (success) {
             List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
+            items = res;
             List<String> result = new ArrayList<>();
             for (Map m : res) {
                 Log.d("Donatrix", m.toString());
@@ -148,6 +155,14 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
 
     public void onDetailsButtonPressed(View view) {
         String itemName = (String) resultSpinner.getItemAtPosition(0);
-
+        Map<String, Object> item = new LinkedHashMap<>();
+        for (Map m: items) {
+            if (((String) m.get("s_description")).equals(this.item)) {
+                item = m;
+            }
+        }
+        Intent intent = new Intent(ItemSearchActivity.this, ItemDetailActivity.class);
+        intent.putExtra("item", (Serializable) item);
+        startActivity(intent);
     }
 }
