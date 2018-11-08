@@ -2,6 +2,8 @@ package edu.gatech.donatrix.model;
 
 import java.io.Serializable;
 
+// Paul: Use toString() instead of giving this enum a param
+
 public enum ItemCategory implements Serializable {
     CLOTHING("Clothing"),
     HAT("Hat"),
