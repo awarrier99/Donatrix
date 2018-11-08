@@ -32,10 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         passwordField = (EditText) findViewById(R.id.loginPasswordTextField);
     }
 
-    public void onCancelPressed(View view) {
-        finish();
-    }
-
     public void onLoginPressed(View view) {
         Map<String, Object> body = new HashMap<>();
         body.put("email", "" + emailField.getText());
