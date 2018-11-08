@@ -42,9 +42,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
 
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
 
         final Database dataService = Database.getInstance(this);
 
@@ -53,8 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for (Location de: dataList) {
             LatLng loc = new LatLng(Double.parseDouble(de.getLatitude()), Double.parseDouble(de.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
 //        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());

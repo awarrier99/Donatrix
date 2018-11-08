@@ -145,4 +145,9 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             resultSpinner.setAdapter(stringArrayAdapter);
         }
     }
+
+    public void onDetailsButtonPressed(View view) {
+        String itemName = (String) resultSpinner.getItemAtPosition(0);
+
+    }
 }
