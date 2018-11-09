@@ -30,7 +30,6 @@ public class RESTCaller {
 
             return mapper.readValue(conn.getInputStream(), new TypeReference<Map<String, Object>>(){});
         } catch (Exception e) {
-            Log.d("Donatrix", "An error occurred while trying to make the API call", e);
             return new HashMap<>();
         }
     }

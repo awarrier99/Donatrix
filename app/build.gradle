@@ -6,10 +6,12 @@ android {
         applicationId "edu.gatech.donatrix"
         minSdkVersion 26
         targetSdkVersion 28
+
+        multiDexEnabled  true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner "android.test.runner.MultiDexTestRunner"
+        testInstrumentationRunner "edu.gatech.donatrix.CustomTestRunner"
     }
     buildTypes {
         release {
@@ -38,4 +40,6 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.7.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'com.android.support:multidex:1.0.1'
 }
