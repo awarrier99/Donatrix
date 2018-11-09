@@ -1,9 +1,6 @@
 package edu.gatech.donatrix;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.test.espresso.Espresso;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,10 +10,8 @@ import android.support.test.rule.ActivityTestRule;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import edu.gatech.donatrix.controllers.LoginActivity;
-import edu.gatech.donatrix.controllers.RegisterActivity;
 import edu.gatech.donatrix.controllers.UserHomeActivity;
 
-import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
@@ -24,10 +19,6 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.core.AllOf.allOf;
-import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.

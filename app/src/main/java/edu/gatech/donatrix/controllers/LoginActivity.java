@@ -28,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        emailField = (EditText) findViewById(R.id.loginEmailTextField);
-        passwordField = (EditText) findViewById(R.id.loginPasswordTextField);
+        emailField = findViewById(R.id.loginEmailTextField);
+        passwordField = findViewById(R.id.loginPasswordTextField);
     }
 
     public void onLoginPressed(View view) {

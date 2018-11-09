@@ -3,6 +3,7 @@ package edu.gatech.donatrix.model;
 import java.io.Serializable;
 import edu.gatech.donatrix.dao.Database;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 
 public class Location implements Serializable {
@@ -130,6 +131,7 @@ public class Location implements Serializable {
     public void removeItem(Item item) {
         this.inventory.removeItem(item);
     }
+    @NonNull
     @Override
     public String toString() {
         //Paul: ugly syntax

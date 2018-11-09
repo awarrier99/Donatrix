@@ -1,7 +1,6 @@
 package edu.gatech.donatrix.model;
 
 import java.sql.Timestamp;
-import java.util.Map;
 
 import android.content.Context;
 

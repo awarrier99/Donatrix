@@ -18,13 +18,8 @@ import java.util.regex.Pattern;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
-import edu.gatech.donatrix.dao.UserDao;
 import edu.gatech.donatrix.data.RESTCaller;
-import edu.gatech.donatrix.model.Admin;
 import edu.gatech.donatrix.model.Location;
-import edu.gatech.donatrix.model.LocationEmployee;
-import edu.gatech.donatrix.model.Manager;
-import edu.gatech.donatrix.model.User;
 import edu.gatech.donatrix.model.UserType;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -45,12 +40,12 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        nameField = (EditText) findViewById(R.id.registerNameInputText);
-        emailField = (EditText) findViewById(R.id.registerEmailInputText);
-        passwordField = (EditText) findViewById(R.id.registerPasswordInputText);
-        confirmPasswordField = (EditText) findViewById(R.id.registerConfirmPasswordInputText);
-        Spinner userTypeSpinner = (Spinner) findViewById(R.id.registerUserTypeSpinner);
-        Spinner locationSpinner = (Spinner) findViewById(R.id.registerLocationSpinner);
+        nameField = findViewById(R.id.registerNameInputText);
+        emailField = findViewById(R.id.registerEmailInputText);
+        passwordField = findViewById(R.id.registerPasswordInputText);
+        confirmPasswordField = findViewById(R.id.registerConfirmPasswordInputText);
+        Spinner userTypeSpinner = findViewById(R.id.registerUserTypeSpinner);
+        Spinner locationSpinner = findViewById(R.id.registerLocationSpinner);
         userTypeSpinner.setOnItemSelectedListener(this);
         locationSpinner.setOnItemSelectedListener(this);
 

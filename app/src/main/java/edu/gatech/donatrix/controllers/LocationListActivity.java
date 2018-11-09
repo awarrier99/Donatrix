@@ -22,7 +22,7 @@ public class LocationListActivity extends AppCompatActivity implements AdapterVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_list);
 
-        Spinner locationSpinner = (Spinner) findViewById(R.id.locationListLocationSpinner);
+        Spinner locationSpinner = findViewById(R.id.locationListLocationSpinner);
         locationSpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationDao.getLocations(this).toArray());
