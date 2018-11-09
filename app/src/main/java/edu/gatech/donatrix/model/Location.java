@@ -6,16 +6,16 @@ import android.content.Context;
 
 
 public class Location implements Serializable {
-    private int key;
-    private String name;
-    private String latitude;
-    private String longitude;
-    private String address;
-    private String city;
-    private String state;
-    private String zip;
+    private int key; //Paul rename to id or uid
+    private String name; //Paul: rename to title
+    private String latitude; //Paul: extract into coordinate object
+    private String longitude; //Paul: extract into coordinate object
+    private String address; //Paul: extract into address object
+    private String city; //Paul: extract into address object
+    private String state; //Paul: extract into address object
+    private String zip; //Paul: extract into address object
     private LocationType locationType;
-    private String number;
+    private String number; //Paul: rename to phoneNumber or telephone
     private String website;
     private ItemManager inventory;
 
@@ -23,6 +23,7 @@ public class Location implements Serializable {
         this.name = name;
     }
 
+    //Paul: info needs to be of type HashMap<String><String>
     public Location(String[] info) {
         this.key = Integer.parseInt(info[0]);
         this.setName(info[1]);
@@ -32,6 +33,7 @@ public class Location implements Serializable {
         this.setCity(info[5]);
         this.setState(info[6]);
         this.setZip(info[7]);
+        //Paul: the line below violates LOD, changes in LocationType can break this file:
         this.setLocationType(LocationType.valueOf(info[8].replace(" ", "").toUpperCase()));
         this.setNumber(info[9]);
         this.setWebsite(info[10]);
@@ -130,6 +132,7 @@ public class Location implements Serializable {
     }
     @Override
     public String toString() {
+        //Paul: ugly syntax
         return String.format("%s | %s | %s | %s | %s | %s | %s | %s | %s | %s", name, latitude, longitude, address, city, state, zip, locationType.getType(), number, website);
     }
 
@@ -138,11 +141,13 @@ public class Location implements Serializable {
         if (!(obj instanceof Location)) {
             return false;
         } else {
+            //Paul: ugly syntax
             return this.key == ((Location) obj).key && this.address.equals(((Location) obj).address) && this.latitude.equals(((Location) obj).latitude) && this.city.equals(((Location) obj).city) && this.locationType == ((Location) obj).locationType && this.name.equals(((Location) obj).name) && this.longitude.equals(((Location) obj).longitude) && this.number.equals(((Location) obj).number) && this.state.equals(((Location) obj).state) && this.website.equals(((Location) obj).website) && this.zip.equals(((Location) obj).zip);
         }
     }
 
     @Override
+    //Paul: not a proper hashcode method. Low priority
     public int hashCode() {
         return this.key * this.name.length();
     }
