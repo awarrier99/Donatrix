@@ -43,14 +43,14 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
             finish();
         }
 
-        Spinner itemSpinner = (Spinner) findViewById(R.id.itemListItemSpinner);
+        Spinner itemSpinner = findViewById(R.id.itemListItemSpinner);
         itemSpinner.setOnItemSelectedListener(this);
 
         try {
             Map<String, Object> body = new HashMap<>();
             body.put("loc_id", locationId);
 
-            Map<String, Object> response = new HashMap<>();
+            Map<String, Object> response;
             if (!allItems) {
                 response = RESTCaller.post("https://donatrix-api.herokuapp.com/location/getItems", body);
             } else {
@@ -107,7 +107,7 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
     public void onDetailsButtonPressed(View view) {
         Map<String, Object> item = new LinkedHashMap<>();
         for (Map m: items) {
-            if (((String) m.get("s_description")).equals(this.item)) {
+            if (m.get("s_description").equals(this.item)) {
                 item = m;
             }
         }

@@ -176,16 +176,12 @@ public class Database {
         return locationMap.get(i);
     }
     public List<Item> getItemsFromLocation(Location location) {
-        Log.d("Donatrix2", location.toString());
-        Log.d("Donatrix2", itemMap.get(location).toString());
         return itemMap.get(location);
     }
     public List<Item> getAllItems() {
         List<Item> items = new ArrayList<>();
         for (List<Item> list : itemMap.values()) {
-            for (Item item: list) {
-                items.add(item);
-            }
+            items.addAll(list);
         }
         return items;
     }

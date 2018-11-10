@@ -1,6 +1,9 @@
 package edu.gatech.donatrix.model;
 
 import java.io.Serializable;
+import java.util.Map;
+
+import edu.gatech.donatrix.data.RESTCaller;
 
 
 public class User implements Serializable {
@@ -48,5 +51,12 @@ public class User implements Serializable {
     }
     public UserType getUserType() {
         return userType;
+    }
+
+    public static boolean testLoggedIn(Map<String, Object> body) {
+        System.out.println(body);
+        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/login", body);
+        System.out.println(response.get("success"));
+        return (boolean) response.get("success");
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -20,11 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.ItemDao;
 import edu.gatech.donatrix.data.RESTCaller;
-import edu.gatech.donatrix.model.Item;
 import edu.gatech.donatrix.model.ItemCategory;
-import edu.gatech.donatrix.model.LocationEmployee;
 
 public class AddItemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -47,11 +45,11 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
         Intent intent = getIntent();
         locationId = intent.getIntExtra("location_id", 0);
 
-        sDescriptionField = (EditText) findViewById(R.id.addItemSDescription);
-        fDescriptionField = (EditText) findViewById(R.id.addItemFDescription);
-        valueField = (EditText) findViewById(R.id.addItemValue);
-        commentsField = (EditText) findViewById(R.id.addItemComments);
-        Spinner itemCategorySpinner = (Spinner) findViewById(R.id.addItemCategory);
+        sDescriptionField = findViewById(R.id.addItemSDescription);
+        fDescriptionField = findViewById(R.id.addItemFDescription);
+        valueField = findViewById(R.id.addItemValue);
+        commentsField = findViewById(R.id.addItemComments);
+        Spinner itemCategorySpinner = findViewById(R.id.addItemCategory);
         itemCategorySpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<ItemCategory> adapter = new ArrayAdapter<ItemCategory>(this, android.R.layout.simple_spinner_item,
@@ -61,7 +59,7 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
                 return position != 0;
             }
             @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
                 TextView tv = (TextView) view;
                 if (position == 0) {

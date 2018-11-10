@@ -11,16 +11,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.Database;
 import edu.gatech.donatrix.dao.LocationDao;
 import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.ItemCategory;
@@ -45,14 +42,14 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_search);
 
-        Spinner locationSpinner = (Spinner) findViewById(R.id.itemSearchLocationSpinner);
-        Spinner categorySpinner = (Spinner) findViewById(R.id.itemSearchCategorySpinner);
+        Spinner locationSpinner = findViewById(R.id.itemSearchLocationSpinner);
+        Spinner categorySpinner = findViewById(R.id.itemSearchCategorySpinner);
         locationSpinner.setOnItemSelectedListener(this);
         categorySpinner.setOnItemSelectedListener(this);
-        nameText = (EditText) findViewById(R.id.editText);
+        nameText = findViewById(R.id.editText);
 
         Log.d("Donatrix", "Hello");
-        resultSpinner = (Spinner) findViewById(R.id.itemSearchResultSpinner);
+        resultSpinner = findViewById(R.id.itemSearchResultSpinner);
         resultSpinner.setOnItemSelectedListener(this);
 
         List<Location>  locList = LocationDao.getLocations(this);
@@ -95,7 +92,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             if (spinner.getId() == R.id.itemSearchLocationSpinner) {
                 boolean changed = false;
                 for (Location loc: locations) {
-                    if (loc.getName().equals((String) spinner.getItemAtPosition(position))) {
+                    if (loc.getName().equals(spinner.getItemAtPosition(position))) {
                         location = loc;
                         changed = true;
                     }
@@ -157,7 +154,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         String itemName = (String) resultSpinner.getItemAtPosition(0);
         Map<String, Object> item = new LinkedHashMap<>();
         for (Map m: items) {
-            if (((String) m.get("s_description")).equals(this.item)) {
+            if (m.get("s_description").equals(this.item)) {
                 item = m;
             }
         }
