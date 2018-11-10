@@ -11,7 +11,7 @@ public class User implements Serializable {
     private boolean locked;
     private UserType userType;
 
-    User(String email, String password, String name, boolean locked, UserType userType) {
+    public User(String email, String password, String name, boolean locked, UserType userType) {
         this.setEmail(email);
         this.setPassword(password);
         this.setName(name);
