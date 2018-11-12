@@ -1,13 +1,13 @@
-public interface Navigation {
-    public navigateToWelcomeScreen() {
+public class Navigation {
+    public static navigateToWelcomeScreen() {
         //Implement
     }
 
-    public navigateToLoginScreen() {
+    public static navigateToLoginScreen() {
         //Implement
     }
 
-    public navigateToDonatrixScreen() {
+    public static navigateToDonatrixScreen() {
         //Implement
     }
 }

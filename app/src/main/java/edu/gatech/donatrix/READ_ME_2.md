@@ -16,19 +16,19 @@ M4/M5 -------------
         - The Welcome activity has options to login or register
         - The login activity has an email field, password field, login button, cancel button, and
             maybe a register button
-        - The methods for navigating between the activities are in the Navigation interface which
+        - The methods for navigating between the activities are in the Navigation class which
           every activity should implement
-        - Activities access data through MainDataAccess. MainDataAccess uses the HerokuAPI interface
+        - Activities access data through MainDataAccess. MainDataAccess uses the HerokuAPI class
           to build methods such as login and register. MainDataAccess handles the logic. HerokuAPI
-          interface handles the API requests (These two can be found under controller/dataAccess)
+          class handles the API requests (These two can be found under controller/dataAccess)
         - If an activity needs to handle an Exception, use the display Exception from the Display
-          interface. Do not hardcode toast in the activities.
+          class. Do not hardcode toast in the activities.
 
 M6 -------------
     DisplayingLocationData
         - Implement the Location Object found under model/location
         - With an understanding of how the model works in M4/M5 you should be able to implement the
-          location methods in the dataAccess interfaces and create an activity that is designed
+          location methods in the dataAccess classes and create an activity that is designed
           similiarly to the three previous ones
         - See M6 desc. online for full implementation
     

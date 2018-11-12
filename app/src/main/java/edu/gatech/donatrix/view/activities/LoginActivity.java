@@ -1,6 +1,6 @@
 package edu.gatech.donatrix.controllers;
 
-public class LoginActivity extends AppCompatActivity implements Navigation {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText emailField;
     private EditText passwordField;
