@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 // Paul: Use toString() instead of giving this enum a param
 
+/**
+ * The enum for the Categories we must have.
+ */
 public enum ItemCategory {
     CLOTHING("Clothing"),
     HAT("Hat"),
@@ -18,6 +21,10 @@ public enum ItemCategory {
         this.category = category;
     }
 
+    /**
+     * Getter.
+     * @return The category of the item.
+     */
     public String getCategory() {
         return this.category;
     }

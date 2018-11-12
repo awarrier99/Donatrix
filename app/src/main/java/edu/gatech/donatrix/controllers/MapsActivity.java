@@ -48,8 +48,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         List<Location> dataList = dataService.getLocations();
 
         for (Location de: dataList) {
-            LatLng loc = new LatLng(Double.parseDouble(de.getLatitude()), Double.parseDouble(de.getLongitude()));
-            googleMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getNumber()));
+            LatLng loc = new LatLng(Double.parseDouble(de.getLatitude()), Double.parseDouble(
+                    de.getLongitude()));
+            googleMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(
+                    de.getNumber()));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 

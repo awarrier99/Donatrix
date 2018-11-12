@@ -23,7 +23,8 @@ import java.util.Map;
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
 
-public class ItemListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ItemListActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener {
 
     @Nullable
     private String item;
@@ -54,7 +55,8 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
 
             Map<String, Object> response;
             if (!allItems) {
-                response = RESTCaller.post("https://donatrix-api.herokuapp.com/location/getItems", body);
+                response = RESTCaller.post(
+                        "https://donatrix-api.herokuapp.com/location/getItems", body);
             } else {
                 response = RESTCaller.get("https://donatrix-api.herokuapp.com/allItems");
             }
@@ -62,31 +64,39 @@ public class ItemListActivity extends AppCompatActivity implements AdapterView.O
             boolean success = (boolean) response.get("success");
 
             if (success) {
-                List<Map<String, Object>> fullItems = (ArrayList<Map<String, Object>>) response.get("items");
+                List<Map<String, Object>> fullItems = (ArrayList<Map<String, Object>>) response
+                        .get("items");
                 this.items = fullItems;
                 List<String> items = new ArrayList<>();
                 for (Map m: fullItems) {
                     items.add((String) m.get("s_description"));
                 }
-                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, items);
-                itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(
+                        this, android.R.layout.simple_spinner_item, items);
+                itemArrayAdapter.setDropDownViewResource(
+                        android.R.layout.simple_spinner_dropdown_item);
                 itemSpinner.setAdapter(itemArrayAdapter);
             } else {
-                Toast toast = Toast.makeText(this, "There are no items at this Location", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this,
+                        "There are no items at this Location", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 String[] empty = new String[0];
-                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, empty);
-                itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(
+                        this, android.R.layout.simple_spinner_item, empty);
+                itemArrayAdapter.setDropDownViewResource(
+                        android.R.layout.simple_spinner_dropdown_item);
                 itemSpinner.setAdapter(itemArrayAdapter);
             }
         } catch (Exception e) {
             Log.d("Zeke2", e.getMessage());
-            Toast toast = Toast.makeText(this, "There are no items at this Location", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,
+                    "There are no items at this Location", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             String[] empty = new String[0];
-            ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, empty);
+            ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(
+                    this, android.R.layout.simple_spinner_item, empty);
             itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             itemSpinner.setAdapter(itemArrayAdapter);
         }

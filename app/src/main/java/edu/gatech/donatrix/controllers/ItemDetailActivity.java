@@ -12,6 +12,9 @@ import java.util.Map;
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
 
+/**
+ * An Activity for Item Detail
+ */
 public class ItemDetailActivity extends AppCompatActivity {
 
     @Override
@@ -36,14 +39,20 @@ public class ItemDetailActivity extends AppCompatActivity {
         Map<String, Object> body = new HashMap<>();
         body.put("loc_id", item.get("location"));
 
-        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/location", body);
+        Map<String, Object> response = RESTCaller.post(
+                "https://donatrix-api.herokuapp.com/location", body);
         boolean success = (boolean) response.get("success");
 
         if (success) {
-            locationText.setText((String) ((Map<String, Object>) response.get("location")).get("Name"));
+            locationText.setText((String) ((Map<String, Object>) response.get("location"))
+                    .get("Name"));
         }
     }
 
+    /**
+     * What happens when Cancel?
+     * @param view Something to make this work.
+     */
     public void onCancelButtonPressed(View view) {
         finish();
     }

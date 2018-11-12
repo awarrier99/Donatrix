@@ -14,7 +14,8 @@ import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
 import edu.gatech.donatrix.model.Location;
 
-public class LocationListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class LocationListActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener {
 
     @Nullable
     private Location location;
@@ -27,7 +28,9 @@ public class LocationListActivity extends AppCompatActivity implements AdapterVi
         Spinner locationSpinner = findViewById(R.id.locationListLocationSpinner);
         locationSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationDao.getLocations(this).toArray());
+        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, LocationDao.
+                getLocations(this).toArray());
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
     }

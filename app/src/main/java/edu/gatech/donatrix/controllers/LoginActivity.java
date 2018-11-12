@@ -38,7 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         body.put("email", "" + emailField.getText());
         body.put("password", "" + passwordField.getText());
 
-        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/login", body);
+        Map<String, Object> response = RESTCaller.post(
+                "https://donatrix-api.herokuapp.com/login", body);
         boolean success = User.testLoggedIn(body);
         Map<String, Object> user = (Map<String, Object>) response.get("user");
 
@@ -48,14 +49,17 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
                 startActivity(intent);
             } else if (type.equals("ADMIN")) {
-                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this,
+                        AdminHomeActivity.class);
                 startActivity(intent);
             } else if (type.equals("LOCATION_EMPLOYEE")) {
-                Intent intent = new Intent(LoginActivity.this, LocationEmployeeHomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this,
+                        LocationEmployeeHomeActivity.class);
                 intent.putExtra("location_id", (int) user.get("loc_id"));
                 startActivity(intent);
             } else {
-                Intent intent = new Intent(LoginActivity.this, ManagerHomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this,
+                        ManagerHomeActivity.class);
                 startActivity(intent);
             }
 

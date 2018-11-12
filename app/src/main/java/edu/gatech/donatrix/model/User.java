@@ -54,7 +54,8 @@ public class User implements Serializable {
     }
 
     public static boolean testLoggedIn(Map<String, Object> body) {
-        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/login", body);
+        Map<String, Object> response = RESTCaller.post(
+                "https://donatrix-api.herokuapp.com/login", body);
         return (boolean) response.get("success");
     }
 }

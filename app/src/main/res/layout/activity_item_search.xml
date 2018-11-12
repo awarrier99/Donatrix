@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android=
+    "http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="54dp"
         android:ems="10"
-        android:hint="Name of Item"
+        android:hint="@string/NameOfItem"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,11 +21,10 @@
         android:importantForAutofill="no" />
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Search for an Item"
+        android:text="@string/SearchForAnItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,19 +58,18 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="41dp"
         android:onClick="onCancelButtonPressed"
-        android:text="Cancel"
+        android:text="@string/Cancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchCategorySpinner" />
 
     <Button
-        android:id="@+id/itemSearchSearchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="77dp"
         android:layout_marginTop="41dp"
         android:layout_marginEnd="78dp"
         android:onClick="onSearchButtonPressed"
-        android:text="Search"
+        android:text="@string/Search"
         app:layout_constraintEnd_toEndOf="@+id/itemSearchCategorySpinner"
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchCategorySpinner" />
@@ -87,12 +86,11 @@
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
-        android:id="@+id/itemSearchDetailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:onClick="onDetailsButtonPressed"
-        android:text="Details"
+        android:text="@string/Details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchResultSpinner" />

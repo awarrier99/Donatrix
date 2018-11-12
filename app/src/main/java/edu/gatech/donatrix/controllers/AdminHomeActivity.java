@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import edu.gatech.donatrix.R;
 
+/**
+ * This is the Admin Home
+ */
 public class AdminHomeActivity extends AppCompatActivity {
 
     @Override

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RESTCaller {
+    private static final int TARGET = 200;
     public static Map<String, Object> post(String urlString, Map<String, Object> body) {
         try {
             URL url = new URL(urlString);
@@ -23,12 +24,13 @@ public class RESTCaller {
 
             mapper.writeValue(conn.getOutputStream(), body);
 
-            if (conn.getResponseCode() != 200) {
+            if (conn.getResponseCode() != TARGET) {
                 throw new RuntimeException("Failed : HTTP error code : "
                         + conn.getResponseCode());
             }
 
-            return mapper.readValue(conn.getInputStream(), new TypeReference<Map<String, Object>>(){});
+            return mapper.readValue(conn.getInputStream(),
+                    new TypeReference<Map<String, Object>>(){});
         } catch (Exception e) {
             return new HashMap<>();
         }
@@ -41,13 +43,14 @@ public class RESTCaller {
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
 
-            if (conn.getResponseCode() != 200) {
+            if (conn.getResponseCode() != TARGET) {
                 throw new RuntimeException("Failed : HTTP error code : "
                         + conn.getResponseCode());
             }
 
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(conn.getInputStream(), new TypeReference<Map<String, Object>>(){});
+            return mapper.readValue(conn.getInputStream(),
+                    new TypeReference<Map<String, Object>>(){});
         } catch (Exception e) {
             Log.d("Donatrix", "An error occurred while trying to make the API call", e);
             return new HashMap<>();

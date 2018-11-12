@@ -22,7 +22,8 @@ import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.Location;
 import edu.gatech.donatrix.model.UserType;
 
-public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class RegisterActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener {
 
     private EditText nameField;
     private EditText emailField;
@@ -50,11 +51,14 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         userTypeSpinner.setOnItemSelectedListener(this);
         locationSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<UserType> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, UserType.values());
+        ArrayAdapter<UserType> adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, UserType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userTypeSpinner.setAdapter(adapter);
 
-        ArrayAdapter<Location> locationAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LocationDao.getLocations(this).toArray());
+        ArrayAdapter<Location> locationAdapter = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, LocationDao
+                .getLocations(this).toArray());
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
     }
@@ -82,7 +86,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             Map<String, Object> body = new HashMap<>();
             body.put("email", "" + emailField.getText());
 
-            Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/checkUser", body);
+            Map<String, Object> response = RESTCaller.post(
+                    "https://donatrix-api.herokuapp.com/checkUser", body);
             boolean success = (boolean) response.get("success");
 
             if (!success) {
@@ -100,24 +105,28 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                     clazz = ManagerHomeActivity.class;
                 }
 
-                response = RESTCaller.post("https://donatrix-api.herokuapp.com/register", body);
+                response = RESTCaller.post(
+                        "https://donatrix-api.herokuapp.com/register", body);
                 success = (boolean) response.get("success");
 
                 if (success) {
                     Intent intent = new Intent(RegisterActivity.this, clazz);
                     startActivity(intent);
                 } else {
-                    Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(this,
+                            "Something is wrong", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0,0);
                     toast.show();
                 }
             } else {
-                Toast toast = Toast.makeText(this, "Something is wrong", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this, "Something is wrong",
+                        Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0,0);
                 toast.show();
             }
         } else {
-            Toast toast = Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Passwords do not match",
+                    Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }

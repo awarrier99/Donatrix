@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -24,7 +25,8 @@ import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.ItemCategory;
 import edu.gatech.donatrix.model.Location;
 
-public class ItemSearchActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ItemSearchActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener {
 
     private EditText nameText;
     private Spinner resultSpinner;
@@ -61,7 +63,8 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             locs.add(loc.getName());
         }
         locs.add(0, "");
-        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locs.toArray());
+        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, locs.toArray());
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
 
@@ -72,16 +75,19 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             categories.add(i.getCategory());
         }
         categories.add(0, "");
-        ArrayAdapter<String> itemCategoryArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categories.toArray());
+        ArrayAdapter<String> itemCategoryArrayAdapter = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, categories.toArray());
         Log.d("Donatrix", "Hello3");
-        itemCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        itemCategoryArrayAdapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
         Log.d("Donatrix", "Hello5");
         categorySpinner.setAdapter(itemCategoryArrayAdapter);
         Log.d("Donatrix", "Hello4");
 
         String[] result = new String[1];
         result[0] = "";
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result);
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, result);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resultSpinner.setAdapter(stringArrayAdapter);
         Log.d("Donatrix", "Hello6");
@@ -136,18 +142,21 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
             body.put("sDesc", "" + nameText.getText());
         }
         Log.d("Donatrix", body.toString());
-        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/filtered/getItems", body);
+        Map<String, Object> response = RESTCaller.post(
+                "https://donatrix-api.herokuapp.com/filtered/getItems", body);
         boolean success = (boolean) response.get("success");
         if (success) {
             List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
             items = res;
-            List<String> result = new ArrayList<>();
+            Collection<String> result = new ArrayList<>();
             for (Map m : res) {
                 Log.d("Donatrix", m.toString());
                 result.add((String) m.get("s_description"));
             }
-            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, result.toArray());
-            stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this,
+                    android.R.layout.simple_spinner_item, result.toArray());
+            stringArrayAdapter.setDropDownViewResource(
+                    android.R.layout.simple_spinner_dropdown_item);
             resultSpinner.setAdapter(stringArrayAdapter);
         }
     }

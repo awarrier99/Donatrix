@@ -24,7 +24,11 @@ import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.ItemCategory;
 
-public class AddItemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+/**
+ * An activity to add an item
+ */
+public class AddItemActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener {
 
     private EditText sDescriptionField;
     private EditText fDescriptionField;
@@ -52,7 +56,8 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
         Spinner itemCategorySpinner = findViewById(R.id.addItemCategory);
         itemCategorySpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<ItemCategory> adapter = new ArrayAdapter<ItemCategory>(this, android.R.layout.simple_spinner_item,
+        ArrayAdapter<ItemCategory> adapter = new ArrayAdapter<ItemCategory>(
+                this, android.R.layout.simple_spinner_item,
                 ItemCategory.values()){
             @Override
             public boolean isEnabled(int position) {
@@ -84,6 +89,10 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
         //do nothing
     }
 
+    /**
+     * A method to handle a press
+     * @param view Something here
+     */
     public void onAddItemPressed(View view) {
         Log.d("Donatrix", Integer.valueOf(locationId).toString());
         Map<String, Object> body = new HashMap<>();
@@ -94,7 +103,8 @@ public class AddItemActivity extends AppCompatActivity implements AdapterView.On
         body.put("comments", "" + commentsField.getText());
         body.put("loc_id", locationId);
 
-        Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/addItem", body);
+        Map<String, Object> response = RESTCaller.post(
+                "https://donatrix-api.herokuapp.com/addItem", body);
         boolean success = (boolean) response.get("success");
         //unsure how to pass in employee to get location data, as of now, var employee has no value
         if (success) {
