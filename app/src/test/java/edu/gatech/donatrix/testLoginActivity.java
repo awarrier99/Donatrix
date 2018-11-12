@@ -7,8 +7,6 @@ import java.util.Map;
 
 import edu.gatech.donatrix.model.User;
 
-import static org.junit.Assert.*;
-
 public class testLoginActivity {
 
     @Test

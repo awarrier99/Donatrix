@@ -2,7 +2,6 @@ package edu.gatech.donatrix.controllers;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -47,7 +46,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final Database dataService = Database.getInstance(this);
 
         List<Location> dataList = dataService.getLocations();
-        Log.d("Zeke", dataList.get(0).getName());
 
         for (Location de: dataList) {
             LatLng loc = new LatLng(Double.parseDouble(de.getLatitude()), Double.parseDouble(de.getLongitude()));

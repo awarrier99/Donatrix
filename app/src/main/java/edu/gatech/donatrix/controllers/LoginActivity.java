@@ -14,6 +14,7 @@ import java.util.Map;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
+import edu.gatech.donatrix.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         body.put("password", "" + passwordField.getText());
 
         Map<String, Object> response = RESTCaller.post("https://donatrix-api.herokuapp.com/login", body);
-        boolean success = (boolean) response.get("success");
+        boolean success = User.testLoggedIn(body);
         Map<String, Object> user = (Map<String, Object>) response.get("user");
 
         if (success) {

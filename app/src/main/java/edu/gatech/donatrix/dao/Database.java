@@ -24,6 +24,7 @@ import edu.gatech.donatrix.model.LocationEmployee;
 import edu.gatech.donatrix.model.User;
 
 
+@SuppressWarnings("ALL")
 public class Database {
     private static Database ourInstance;
     private static Map<String, User> userMap;
@@ -43,8 +44,19 @@ public class Database {
         return ourInstance = new Database(context);
     }
 
+    public static Database getInstance() {
+        if (Database.ourInstance != null) {
+            return ourInstance;
+        }
+        return ourInstance = new Database();
+    }
+
     private Database(Context context) {
         load(context);
+    }
+
+    private Database() {
+
     }
 
     public void addLocationEmployee(User user, Location location) {
@@ -68,6 +80,7 @@ public class Database {
                 userMap = (HashMap<String, User>) is.readObject();
                 break;
             case LOC:
+                //noinspection unchecked
                 locationMap = (HashMap<Integer, Location>) is.readObject();
                 break;
             case INVENTORY:
@@ -117,9 +130,33 @@ public class Database {
         }
     }
 
+    public void registerUser(User user) {
+        if (userMap != null) {
+            if (!userMap.containsKey(user.getEmail())) {
+                userMap.put(user.getEmail(), user);
+            } else {
+                throw new IllegalArgumentException("Username already taken");
+            }
+        } else {
+            userMap = new HashMap<>();
+            userMap.put(user.getEmail(), user);
+        }
+    }
+
     public boolean checkRegisteredUser(String username, String password) {
-        User user = userMap.get(username);
-        return user != null && user.getPassword().equals(password) && !user.getLocked();
+        if (userMap != null) {
+            if (username != null) {
+                User user = userMap.get(username);
+                if (user != null) {
+                    return password.equals(user.getPassword()) && !user.getLocked();
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
     public void loadLocations(Context context) {
@@ -155,16 +192,12 @@ public class Database {
 //        return locationMap;
 //    }
     public void addItem(Item item, LocationEmployee employee) {
-        Log.d("Donatrix", "Hello");
-        Log.d("Donatrix", employee.toString());
         List<Item> items = itemMap.get(employee.getLocation());
         if (items == null) {
             items = new ArrayList<>();
         }
-        Log.d("Donatrix", item.getsDescription());
         items.add(item);
         itemMap.put(employee.getLocation(), (ArrayList<Item>) items);
-        Log.d("Donatrix", items.get(0).toString());
     }
     public User getUser(String username) {
         return userMap.get(username);
@@ -184,5 +217,10 @@ public class Database {
             items.addAll(list);
         }
         return items;
+    }
+    public void unregisterUser(User user) {
+        if (userMap != null) {
+            userMap.remove(user.getEmail());
+        }
     }
 }
