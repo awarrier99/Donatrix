@@ -75,13 +75,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         location = null;
     }
 
-    private boolean isEmailValid(String email) {
-        Pattern validEmail = Pattern.compile("^[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z]+$");
-        return validEmail.matcher(email).matches();
-    }
-
     public void onRegisterPressed(View view) {
-        if (("" + passwordField.getText()).equals(("" + confirmPasswordField.getText()))) {
+        String password = "" + passwordField.getText().toString();
+        if (password.equals(password) && DataValidation.isPasswordStrong(password)) {
             Map<String, Object> body = new HashMap<>();
             body.put("email", "" + emailField.getText());
 
