@@ -1,6 +1,7 @@
 package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import edu.gatech.donatrix.model.Location;
 
 public class LocationListActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    @Nullable
     private Location location;
 
     @Override

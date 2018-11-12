@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 // Paul: Use toString() instead of giving this enum a param
 
-public enum ItemCategory implements Serializable {
+public enum ItemCategory {
     CLOTHING("Clothing"),
     HAT("Hat"),
     KITCHEN("Kitchen"),

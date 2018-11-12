@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (success) {
             String type = (String) user.get("type");
-            if (type.equals("USER")) {
+            if ("USER".equals(type)) {
                 Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
                 startActivity(intent);
             } else if (type.equals("ADMIN")) {

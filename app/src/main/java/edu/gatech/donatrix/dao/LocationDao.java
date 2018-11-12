@@ -10,7 +10,7 @@ import edu.gatech.donatrix.model.User;
 
 public class LocationDao {
     public static List<Location> getLocations(Context context) {
-        if (Database.getInstance(context).getLocations().size() == 0) {
+        if (Database.getInstance(context).getLocations().isEmpty()) {
             Database.getInstance(context).loadLocations(context);
         }
         return Database.getInstance(context).getLocations();
@@ -22,7 +22,7 @@ public class LocationDao {
         Database.getInstance(context).addLocationEmployee(user, location);
     }
     public static List<String> getLocationNames(Context context) {
-        if (Database.getInstance(context).getLocations().size() == 0) {
+        if (Database.getInstance(context).getLocations().isEmpty()) {
             Database.getInstance(context).loadLocations(context);
         }
         List<Location> locList = Database.getInstance(context).getLocations();

@@ -3,6 +3,7 @@ package edu.gatech.donatrix.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     private EditText confirmPasswordField;
 
     private UserType userType;
+    @Nullable
     private Location location;
 
     @Override
@@ -91,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
                 Class clazz = LoginActivity.class;
 
-                if (userType.getType().equals("LOCATION_EMPLOYEE")) {
+                if ("LOCATION_EMPLOYEE".equals(userType.getType())) {
                     body.put("loc_id", location.getKey());
 
                 } else if (userType.getType().equals("MANAGER")) {

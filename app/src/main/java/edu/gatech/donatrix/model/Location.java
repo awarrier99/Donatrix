@@ -144,7 +144,7 @@ public class Location implements Serializable {
             return false;
         } else {
             //Paul: ugly syntax
-            return this.key == ((Location) obj).key && this.address.equals(((Location) obj).address) && this.latitude.equals(((Location) obj).latitude) && this.city.equals(((Location) obj).city) && this.locationType == ((Location) obj).locationType && this.name.equals(((Location) obj).name) && this.longitude.equals(((Location) obj).longitude) && this.number.equals(((Location) obj).number) && this.state.equals(((Location) obj).state) && this.website.equals(((Location) obj).website) && this.zip.equals(((Location) obj).zip);
+            return (this.key == ((Location) obj).key) && this.address.equals(((Location) obj).address) && this.latitude.equals(((Location) obj).latitude) && this.city.equals(((Location) obj).city) && (this.locationType == ((Location) obj).locationType) && this.name.equals(((Location) obj).name) && this.longitude.equals(((Location) obj).longitude) && this.number.equals(((Location) obj).number) && this.state.equals(((Location) obj).state) && this.website.equals(((Location) obj).website) && this.zip.equals(((Location) obj).zip);
         }
     }
 

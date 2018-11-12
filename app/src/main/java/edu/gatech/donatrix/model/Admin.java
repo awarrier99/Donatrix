@@ -25,6 +25,7 @@ public class Admin extends User {
      *
      * @return display name
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -34,6 +35,7 @@ public class Admin extends User {
      *
      * @return email address of admin account
      */
+    @Override
     public String getEmail() {
         return email;
     }
@@ -43,6 +45,7 @@ public class Admin extends User {
      *
      * @return password of admin account
      */
+    @Override
     public String getPassword() {
         return password;
     }
@@ -52,6 +55,7 @@ public class Admin extends User {
      *
      * @param name new display name
      */
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -61,6 +65,7 @@ public class Admin extends User {
      *
      * @param email new email address
      */
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
@@ -70,6 +75,7 @@ public class Admin extends User {
      *
      * @param password new password
      */
+    @Override
     public void setPassword(String password) {
         this.password = password;
     }

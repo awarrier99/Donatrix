@@ -1,6 +1,7 @@
 package edu.gatech.donatrix.controllers;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,7 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
     private EditText nameText;
     private Spinner resultSpinner;
 
+    @Nullable
     private Location location;
     private String category;
 
@@ -127,10 +129,10 @@ public class ItemSearchActivity extends AppCompatActivity implements AdapterView
         if (location != null) {
             body.put("loc_id", location.getKey());
         }
-        if (category.length() > 0) {
+        if (!category.isEmpty()) {
             body.put("cat", category);
         }
-        if (("" + nameText.getText()).length() > 0) {
+        if (!("" + nameText.getText()).isEmpty()) {
             body.put("sDesc", "" + nameText.getText());
         }
         Log.d("Donatrix", body.toString());

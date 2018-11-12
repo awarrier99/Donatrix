@@ -14,7 +14,6 @@ public class testLoginActivity {
         Map<String, Object> body = new HashMap<>();
         body.put("email", "zday123@yahoo.com");
         body.put("password", "janisday");
-        System.out.println(User.testLoggedIn(body));
 //        assertEquals("User sign in correct", User.testLoggedIn(body), true);
     }
 }

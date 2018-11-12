@@ -2,7 +2,7 @@ package edu.gatech.donatrix.model;
 
 import java.io.Serializable;
 
-public enum UserType implements Serializable {
+public enum UserType {
     USER("USER"),
     LOCATION_EMPLOYEE("LOCATION_EMPLOYEE"),
     MANAGER("MANAGER"),

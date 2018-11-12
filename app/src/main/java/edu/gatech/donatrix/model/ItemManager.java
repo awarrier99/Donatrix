@@ -1,6 +1,7 @@
 package edu.gatech.donatrix.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class ItemManager {
@@ -15,7 +16,7 @@ class ItemManager {
 
     //Paul: Shouldn't getItems be a method of Inventory?
     public List<Item> getItems() {
-        return this.items;
+        return Collections.unmodifiableList(this.items);
     }
 
     //Paul: Shouldn't addItem be a method of Inventory?
