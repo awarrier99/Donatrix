@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;

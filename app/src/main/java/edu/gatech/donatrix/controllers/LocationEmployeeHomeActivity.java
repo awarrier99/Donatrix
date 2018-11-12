@@ -53,4 +53,9 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
             Log.d("Donatrix", e.getMessage());
         }
     }
+
+    public void onLocationListPressed(View view) {
+        Intent intent = new Intent(this, LocationListActivity.class);
+        startActivity(intent);
+    }
 }

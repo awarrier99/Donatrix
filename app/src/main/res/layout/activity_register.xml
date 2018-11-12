@@ -24,7 +24,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintVertical_bias="0.175"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/registerEmailInputText"
@@ -37,13 +38,14 @@
         android:background="@drawable/register_text_input"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress|textPersonName"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.275"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/registerPasswordInputText"
@@ -62,7 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.376"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/registerConfirmPasswordInputText"
@@ -81,7 +84,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintVertical_bias="0.478"
+        android:importantForAutofill="no" />
 
     <Spinner
         android:id="@+id/registerUserTypeSpinner"
@@ -115,7 +119,7 @@
         android:onClick="onRegisterPressed"
         android:text="Register"
         android:textColor="@color/colorWhite"
-        android:textSize="40px"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

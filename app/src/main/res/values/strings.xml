@@ -18,4 +18,20 @@
     <string name="title_activity_maps">Map</string>
     <string name="prompt_user_type">Please select User Type</string>
     <string name="prompt_location">Please select a Location</string>
+    <string name="Comments">Comments</string>
+    <string name="Value">Value</string>
+    <string name="FullDescription">Full Description</string>
+    <string name="ShortDescription">Short Description</string>
+    <string name="AddItem">Add Item</string>
+    <string name = "AdminHomePage">Admin Home Page</string>
+    <string name="DoSomething">Do Something</string>
+    <string name="Logout">Logout</string>
+    <string name="WelcomeToTheDonatrix">Welcome To The Donatrix</string>
+    <string name="ViewMyItems">View My Items</string>
+    <string name="ViewAllItems">View All Items</string>
+    <string name="SearchItems">Search Items</string>
+    <string name="Map">Map</string>
+    <string name="LocationList">Location List</string>
+    <string name="ShortDescriptionColon">Short Description:</string>
+    <string name="TextView">TextView</string>
 </resources>
