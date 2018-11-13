@@ -34,4 +34,7 @@
     <string name="LocationList">Location List</string>
     <string name="ShortDescriptionColon">Short Description:</string>
     <string name="TextView">TextView</string>
+    <string name="facebook_app_id">745512659126288</string>
+    <string name="fb_login_protocol_scheme">fb745512659126288</string>
+
 </resources>
