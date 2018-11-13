@@ -1,7 +1,5 @@
 package edu.gatech.donatrix.model;
 
-import java.io.Serializable;
-
 public enum LocationType {
     DROPOFF("DROPOFF"),
     STORE("STORE"),

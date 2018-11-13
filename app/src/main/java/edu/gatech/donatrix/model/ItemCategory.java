@@ -1,7 +1,5 @@
 package edu.gatech.donatrix.model;
 
-import java.io.Serializable;
-
 // Paul: Use toString() instead of giving this enum a param
 
 /**

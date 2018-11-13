@@ -40,4 +40,9 @@
     <string name="ConfirmPassword">Confirm Password</string>
     <string name="Register">Register</string>
     <string name="Logo">Logo</string>
+    <string name="GuestHome">Guest Home</string>
+    <string name="LocationEmployeeHome">Location Employee Home</string>
+    <string name="ManagerHome">Manager Home</string>
+    <string name="UserHome">User Home</string>
+    <string name="ContinueAsGuest">Continue As Guest</string>
 </resources>

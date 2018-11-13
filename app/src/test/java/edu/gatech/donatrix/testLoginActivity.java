@@ -5,8 +5,6 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.gatech.donatrix.model.User;
-
 public class testLoginActivity {
 
     @Test

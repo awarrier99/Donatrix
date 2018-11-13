@@ -15,11 +15,11 @@ public class User implements Serializable {
     private UserType userType;
 
     public User(String email, String password, String name, boolean locked, UserType userType) {
-        this.setEmail(email);
-        this.setPassword(password);
-        this.setName(name);
-        this.setLocked(locked);
-        this.setUserType(userType);
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.locked = locked;
+        this.userType = userType;
     }
 
     void setEmail(String email) {

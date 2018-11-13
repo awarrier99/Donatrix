@@ -43,7 +43,7 @@ public class Item implements Serializable {
      * @return The time.
      */
     public Timestamp getTime() {
-        return time;
+        return (java.sql.Timestamp) time.clone();
     }
 
     /**

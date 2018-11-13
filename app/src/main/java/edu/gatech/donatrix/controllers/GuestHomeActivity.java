@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import edu.gatech.donatrix.R;
 
+/**
+ * An Activity for Guests
+ */
 public class GuestHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

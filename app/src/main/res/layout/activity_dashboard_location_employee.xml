@@ -32,7 +32,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Location Employee Home"
+        android:text="@string/LocationEmployeeHome"
         android:textColor="@color/colorWhite"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"

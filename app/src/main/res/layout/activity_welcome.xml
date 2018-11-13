@@ -77,7 +77,7 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:onClick="onGuestLoginPressed"
-        android:text="Continue As Guest"
+        android:text="@string/ContinueAsGuest"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
