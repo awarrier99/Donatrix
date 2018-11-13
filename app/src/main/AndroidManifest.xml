@@ -41,6 +41,7 @@
         <activity android:name=".controllers.AdminHomeActivity" />
         <activity android:name=".controllers.ManagerHomeActivity" />
         <activity android:name=".controllers.GuestHomeActivity" />
+        <activity android:name=".controllers.ForgotPasswordActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
