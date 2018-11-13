@@ -24,4 +24,9 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    public void onGuestLoginPressed(View view) {
+        Intent intent = new Intent(WelcomeActivity.this, GuestHomeActivity.class);
+        startActivity(intent);
+    }
 }
