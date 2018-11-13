@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blurredstreet"
     tools:context=".controllers.LocationEmployeeHomeActivity">
 
     <Button
@@ -24,14 +25,16 @@
 
     <TextView
         android:id="@+id/dashboardTextView"
-        android:layout_width="226dp"
-        android:layout_height="53dp"
+        android:layout_width="248dp"
+        android:layout_height="154dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/WelcomeToTheDonatrix"
-        android:textSize="20sp"
+        android:gravity="center"
+        android:text="Location Employee Home"
+        android:textColor="@color/colorWhite"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,21 +45,21 @@
         android:id="@+id/dashboardLocationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="onAddItemPressed"
         android:text="@string/AddItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.362" />
 
     <Button
         android:id="@+id/locationEmployeeDashboardShowItemsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="10dp"
         android:onClick="onShowItemsButtonPressed"
         android:text="@string/ViewMyItems"
         app:layout_constraintEnd_toEndOf="parent"
