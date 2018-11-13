@@ -4,51 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blurredstreet"
     tools:context=".controllers.LocationEmployeeHomeActivity">
 
     <Button
         android:id="@+id/dashboardLogoutButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/register_button"
+        android:backgroundTint="#ff0000"
         android:onClick="onLogoutPressed"
         android:text="@string/Logout"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
+        app:layout_constraintVertical_bias="0.87" />
 
     <TextView
         android:id="@+id/dashboardTextView"
         android:layout_width="226dp"
-        android:layout_height="53dp"
+        android:layout_height="162dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/WelcomeToTheDonatrix"
-        android:textSize="20sp"
+        android:gravity="center"
+        android:text="User Home"
+        android:textColor="@color/colorWhite"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.398" />
 
     <Button
         android:id="@+id/dashboardLocationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="216dp"
+        android:layout_height="58dp"
         android:layout_marginTop="54dp"
+        android:background="@drawable/register_button"
         android:onClick="onLocationListPressed"
         android:text="@string/LocationList"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dashboardTextView"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.148" />
 </android.support.constraint.ConstraintLayout>
