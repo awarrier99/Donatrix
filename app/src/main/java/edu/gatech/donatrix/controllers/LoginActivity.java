@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
@@ -44,15 +45,15 @@ public class LoginActivity extends AppCompatActivity {
         Map<String, Object> user = (Map<String, Object>) response.get("user");
 
         if (success) {
-            String type = (String) user.get("type");
+            String type = (String) Objects.requireNonNull(user).get("type");
             if ("USER".equals(type)) {
                 Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
                 startActivity(intent);
-            } else if (type.equals("ADMIN")) {
+            } else if ("ADMIN".equals(type)) {
                 Intent intent = new Intent(LoginActivity.this,
                         AdminHomeActivity.class);
                 startActivity(intent);
-            } else if (type.equals("LOCATION_EMPLOYEE")) {
+            } else if ("LOCATION_EMPLOYEE".equals(type)) {
                 Intent intent = new Intent(LoginActivity.this,
                         LocationEmployeeHomeActivity.class);
                 intent.putExtra("location_id", (int) user.get("loc_id"));

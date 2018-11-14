@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
@@ -33,11 +34,11 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         sDescText.setText((String) item.get("s_description"));
         fDescText.setText((String) item.get("l_description"));
-        valueText.setText(item.get("Value").toString());
+        valueText.setText(Objects.requireNonNull(item.get("Value")).toString());
         commentsText.setText((String) item.get("Comments"));
 
         Map<String, Object> body = new HashMap<>();
-        body.put("loc_id", item.get("location"));
+        body.put("loc_id", Objects.requireNonNull(item.get("location")));
 
         Map<String, Object> response = RESTCaller.post(
                 "https://donatrix-api.herokuapp.com/location", body);

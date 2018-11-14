@@ -17,7 +17,7 @@ import edu.gatech.donatrix.R;
 public class ItemSearchListActivity extends AppCompatActivity {
 
     ListView listView;
-    List list = new ArrayList();
+    final List list = new ArrayList();
     ArrayAdapter adapter;
 
     @Override

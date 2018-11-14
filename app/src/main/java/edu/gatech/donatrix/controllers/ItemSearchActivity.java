@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
@@ -67,7 +68,7 @@ public class ItemSearchActivity extends AppCompatActivity
         }
         locs.add(0, "");
         ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, locs.toArray());
+                this, android.R.layout.simple_spinner_item, Objects.requireNonNull(locs.toArray()));
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
 
@@ -79,7 +80,8 @@ public class ItemSearchActivity extends AppCompatActivity
         }
         categories.add(0, "");
         ArrayAdapter<String> itemCategoryArrayAdapter = new ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, categories.toArray());
+                this, android.R.layout.simple_spinner_item,
+                Objects.requireNonNull(categories.toArray()));
         Log.d("Donatrix", "Hello3");
         itemCategoryArrayAdapter.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);

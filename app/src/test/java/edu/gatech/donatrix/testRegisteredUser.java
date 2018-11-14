@@ -10,7 +10,7 @@ import edu.gatech.donatrix.model.User;
 import edu.gatech.donatrix.model.UserType;
 
 public class testRegisteredUser {
-    final Database db = Database.getInstance();
+    private final Database db = Database.getInstance();
     User good;
     User locked;
     User nUser;
