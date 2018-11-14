@@ -284,4 +284,22 @@ public class Database {
             userMap.remove(user.getEmail());
         }
     }
+    public static List<Location> getLocations(Context context) {
+        Database db = Database.getInstance(context);
+        if (db.getLocations().isEmpty()) {
+            db.loadLocations(context);
+        }
+        return db.getLocations();
+    }
+    public static List<String> getLocationNames(Context context) {
+        if (Database.getInstance(context).getLocations().isEmpty()) {
+            Database.getInstance(context).loadLocations(context);
+        }
+        List<Location> locList = Database.getInstance(context).getLocations();
+        List<String> strList = new ArrayList<>();
+        for (Location loc: locList) {
+            strList.add(loc.getName());
+        }
+        return strList;
+    }
 }

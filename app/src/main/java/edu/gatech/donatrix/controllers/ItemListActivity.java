@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
@@ -76,6 +77,7 @@ public class ItemListActivity extends AppCompatActivity
                         .get("items");
                 this.items = fullItems;
                 List<String> items = new ArrayList<>();
+                assert fullItems != null;
                 for (Map m: fullItems) {
                     items.add((String) m.get("s_description"));
                 }
@@ -148,7 +150,7 @@ public class ItemListActivity extends AppCompatActivity
     public void onDetailsButtonPressed(View view) {
         Map<String, Object> item = new LinkedHashMap<>();
         for (Map m: items) {
-            if (m.get("s_description").equals(this.item)) {
+            if (Objects.requireNonNull(m.get("s_description")).equals(this.item)) {
                 item = m;
             }
         }

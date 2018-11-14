@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
@@ -39,8 +40,8 @@ public class LocationListActivity extends AppCompatActivity
         locationSpinner.setOnItemSelectedListener(this);
 
         ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, LocationDao.
-                getLocations(this).toArray());
+                android.R.layout.simple_spinner_item, Objects.requireNonNull(LocationDao.
+                getLocations(this).toArray()));
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
     }

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
@@ -62,8 +63,8 @@ public class RegisterActivity extends AppCompatActivity
         userTypeSpinner.setAdapter(adapter);
 
         ArrayAdapter<Location> locationAdapter = new ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, LocationDao
-                .getLocations(this).toArray());
+                this, android.R.layout.simple_spinner_item, Objects.requireNonNull(LocationDao
+                .getLocations(this).toArray()));
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);
     }
@@ -104,7 +105,8 @@ public class RegisterActivity extends AppCompatActivity
      */
     public void onRegisterPressed(View view) {
         String password = "" + passwordField.getText().toString();
-        if (password.equals(password) && DataValidation.isPasswordStrong(password)) {
+        String cPassword = "" + confirmPasswordField.getText().toString();
+        if (password.equals(cPassword) && DataValidation.isPasswordStrong(password)) {
             Map<String, Object> body = new HashMap<>();
             body.put("email", "" + emailField.getText());
 
@@ -121,9 +123,9 @@ public class RegisterActivity extends AppCompatActivity
                 Class clazz = LoginActivity.class;
 
                 if ("LOCATION_EMPLOYEE".equals(userType.getType())) {
-                    body.put("loc_id", location.getKey());
+                    body.put("loc_id", Objects.requireNonNull(location).getKey());
 
-                } else if (userType.getType().equals("MANAGER")) {
+                } else if ("MANAGER".equals(userType.getType())) {
                     clazz = ManagerHomeActivity.class;
                 }
 

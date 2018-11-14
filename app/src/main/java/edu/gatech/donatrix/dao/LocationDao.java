@@ -18,10 +18,7 @@ public class LocationDao {
      * @return The list of locations.
      */
     public static List<Location> getLocations(Context context) {
-        if (Database.getInstance(context).getLocations().isEmpty()) {
-            Database.getInstance(context).loadLocations(context);
-        }
-        return Database.getInstance(context).getLocations();
+        return Database.getLocations(context);
     }
 
     /**
@@ -50,14 +47,6 @@ public class LocationDao {
      * @return A list of the names of locations.
      */
     public static List<String> getLocationNames(Context context) {
-        if (Database.getInstance(context).getLocations().isEmpty()) {
-            Database.getInstance(context).loadLocations(context);
-        }
-        List<Location> locList = Database.getInstance(context).getLocations();
-        List<String> strList = new ArrayList<>();
-        for (Location loc: locList) {
-            strList.add(loc.getName());
-        }
-        return strList;
+        return Database.getLocationNames(context);
     }
 }
