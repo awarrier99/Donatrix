@@ -33,6 +33,11 @@ public class ItemListActivity extends AppCompatActivity
     private String item;
     private List<Map<String, Object>> items;
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,11 +110,24 @@ public class ItemListActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Called when an item is selected
+     *
+     * @param parent Parent drop down
+     * @param view the current view
+     * @param position position of the item
+     * @param id the id of the item
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         item = (String) parent.getItemAtPosition(position);
     }
 
+    /**
+     * Does nothing
+     *
+     * @param parent pointless
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         item = null;

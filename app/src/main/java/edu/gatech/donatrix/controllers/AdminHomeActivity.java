@@ -10,6 +10,11 @@ import edu.gatech.donatrix.R;
  */
 public class AdminHomeActivity extends AppCompatActivity {
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState saved state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

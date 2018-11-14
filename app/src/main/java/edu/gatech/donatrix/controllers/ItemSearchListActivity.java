@@ -20,6 +20,11 @@ public class ItemSearchListActivity extends AppCompatActivity {
     List list = new ArrayList();
     ArrayAdapter adapter;
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

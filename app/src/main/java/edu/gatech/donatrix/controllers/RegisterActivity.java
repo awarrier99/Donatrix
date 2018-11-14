@@ -34,6 +34,11 @@ public class RegisterActivity extends AppCompatActivity
     @Nullable
     private Location location;
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +68,13 @@ public class RegisterActivity extends AppCompatActivity
         locationSpinner.setAdapter(locationAdapter);
     }
 
+    /**
+     * Called when item is selected
+     * @param parent the parent of the item
+     * @param view the current view
+     * @param position position of the item
+     * @param id the items id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner spinner = (Spinner) parent;
@@ -74,12 +86,22 @@ public class RegisterActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Do nothing
+     *
+     * @param parent pointless
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         userType = UserType.USER;
         location = null;
     }
 
+    /**
+     * Called when registered button is pressed
+     *
+     * @param view the current view
+     */
     public void onRegisterPressed(View view) {
         String password = "" + passwordField.getText().toString();
         if (password.equals(password) && DataValidation.isPasswordStrong(password)) {

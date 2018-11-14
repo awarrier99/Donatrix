@@ -200,6 +200,12 @@ public class Location implements Serializable {
                 longitude, address, city, state, zip, locationType.getType(), number, website);
     }
 
+    /**
+     * equals method
+     *
+     * @param obj the obj to compare to
+     * @return true if equal
+     */
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Location)) {

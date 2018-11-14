@@ -9,12 +9,22 @@ import edu.gatech.donatrix.R;
 
 public class UserHomeActivity extends AppCompatActivity {
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_user);
     }
 
+    /**
+     * Called when the location list detects a press
+     *
+     * @param view the current view
+     */
     public void onLocationListPressed(View view) {
         Intent intent = new Intent(this, LocationListActivity.class);
         startActivity(intent);

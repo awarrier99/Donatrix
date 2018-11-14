@@ -9,6 +9,12 @@ import edu.gatech.donatrix.R;
  * An Activity for Guests
  */
 public class GuestHomeActivity extends AppCompatActivity {
+
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

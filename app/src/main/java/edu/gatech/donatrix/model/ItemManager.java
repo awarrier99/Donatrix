@@ -14,17 +14,26 @@ class ItemManager {
         this.items = new ArrayList<>();
     }
 
-    //Paul: Shouldn't getItems be a method of Inventory?
+    /**
+     * gets items
+     * @return items
+     */
     public List<Item> getItems() {
         return Collections.unmodifiableList(this.items);
     }
 
-    //Paul: Shouldn't addItem be a method of Inventory?
+    /**
+     * adds Items
+     * @param item item to add
+     */
     public void addItem(Item item) {
         this.items.add(item);
     }
 
-    //Paul: Shouldn't removeITem be a method of Inventory?
+    /**
+     * removes items
+     * @param item item to remove
+     */
     public void removeItem(Item item) {
         this.items.remove(item);
     }

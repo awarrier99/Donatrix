@@ -1,5 +1,8 @@
 package edu.gatech.donatrix.model;
 
+/**
+ * type of user
+ */
 public enum UserType {
     USER("USER"),
     LOCATION_EMPLOYEE("LOCATION_EMPLOYEE"),
@@ -8,10 +11,18 @@ public enum UserType {
 
     private final String type;
 
-    UserType(String type) {
+    /**
+     * constructor
+     * @param type type of user
+     */
+    public UserType(String type) {
         this.type = type;
     }
 
+    /**
+     * type getter
+     * @return type
+     */
     public String getType() {
         return this.type;
     }

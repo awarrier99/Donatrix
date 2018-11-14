@@ -25,6 +25,9 @@ import edu.gatech.donatrix.model.User;
 
 
 @SuppressWarnings("ALL")
+/**
+ * The Database controller
+ */
 public class Database {
     private static Database ourInstance;
     private static Map<String, User> userMap;
@@ -37,6 +40,12 @@ public class Database {
     private static final String INVENTORY = "INVENTORY";
     private static final String EMPLOYEE = "EMPLOYEE";
 
+    /**
+     * Returns an instance of the database
+     *
+     * @param context the current context
+     * @return the instance
+     */
     public static Database getInstance(Context context) {
         if (Database.ourInstance != null) {
             return ourInstance;
@@ -44,6 +53,11 @@ public class Database {
         return ourInstance = new Database(context);
     }
 
+    /**
+     * Returns an instance of the database
+     *
+     * @return the instance
+     */
     public static Database getInstance() {
         if (Database.ourInstance != null) {
             return ourInstance;
@@ -59,6 +73,12 @@ public class Database {
 
     }
 
+    /**
+     * Adds  a location employee
+     *
+     * @param user the user to add
+     * @param location the location of the user
+     */
     public void addLocationEmployee(User user, Location location) {
         employeeMap.put((LocationEmployee) user, location);
     }
@@ -121,6 +141,12 @@ public class Database {
         }
     }
 
+    /**
+     * Adds a user to the database
+     *
+     * @param user the user to add
+     * @param context the current context
+     */
     public void registerUser(User user, Context context) {
         if (!userMap.containsKey(user.getEmail())) {
             userMap.put(user.getEmail(), user);
@@ -130,6 +156,11 @@ public class Database {
         }
     }
 
+    /**
+     * Adds a user to the database
+     *
+     * @param user the user to add
+     */
     public void registerUser(User user) {
         if (userMap != null) {
             if (!userMap.containsKey(user.getEmail())) {
@@ -143,6 +174,13 @@ public class Database {
         }
     }
 
+    /**
+     * Confirms if a user is registered
+     *
+     * @param username username of the user
+     * @param password password of the usser
+     * @return true if the user is registered
+     */
     public boolean checkRegisteredUser(String username, String password) {
         if (userMap != null) {
             if (username != null) {
@@ -159,6 +197,11 @@ public class Database {
         return false;
     }
 
+    /**
+     * Loads all locations
+     *
+     * @param context the current context
+     */
     public void loadLocations(Context context) {
         if (locationMap.isEmpty()) {
             try {
@@ -184,6 +227,11 @@ public class Database {
         }
     }
 
+    /**
+     * Gets all of the locations
+     *
+     * @return list of locations
+     */
     public List<Location> getLocations() {
         return new ArrayList<>(locationMap.values());
     }
@@ -191,6 +239,13 @@ public class Database {
     //    public Map<Integer, Location> getLocations() {
 //        return locationMap;
 //    }
+
+    /**
+     * Adds an item
+     *
+     * @param item item to add
+     * @param employee the employee adding the item
+     */
     public void addItem(Item item, LocationEmployee employee) {
         List<Item> items = itemMap.get(employee.getLocation());
         if (items == null) {
@@ -218,6 +273,12 @@ public class Database {
         }
         return items;
     }
+
+    /**
+     * removes a user from the database
+     *
+     * @param user the user to remove
+     */
     public void unregisterUser(User user) {
         if (userMap != null) {
             userMap.remove(user.getEmail());

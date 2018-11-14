@@ -38,6 +38,11 @@ public class AddItemActivity extends AppCompatActivity
     private ItemCategory itemCategory;
     private int locationId;
 
+    /**
+     * Activity inializer
+     *
+     * @param savedInstanceState the saved state
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +84,24 @@ public class AddItemActivity extends AppCompatActivity
         itemCategorySpinner.setAdapter(adapter);
     }
 
+    /**
+     * Callback when an item is selected
+     *
+     * @param parent parent of item selection
+     * @param view current view
+     * @param position position of item
+     * @param id id of item selected
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         itemCategory = (ItemCategory) parent.getItemAtPosition(position);
     }
 
+    /**
+     * Does nothing. Satisfies interface
+     *
+     * @param parent pointless
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         //do nothing

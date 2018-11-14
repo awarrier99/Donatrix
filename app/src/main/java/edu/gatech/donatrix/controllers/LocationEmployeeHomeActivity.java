@@ -15,6 +15,11 @@ public class LocationEmployeeHomeActivity extends AppCompatActivity {
 
     private int locationId;
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

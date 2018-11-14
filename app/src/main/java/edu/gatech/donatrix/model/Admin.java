@@ -1,7 +1,7 @@
 package edu.gatech.donatrix.model;
 
 /**
- * An admin has the power to _____________.
+ * The admin class
  */
 public class Admin extends User {
 

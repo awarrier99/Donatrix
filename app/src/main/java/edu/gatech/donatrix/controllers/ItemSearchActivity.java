@@ -44,6 +44,11 @@ public class ItemSearchActivity extends AppCompatActivity
     private List<Map<String, Object>> items;
 
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +101,13 @@ public class ItemSearchActivity extends AppCompatActivity
         Log.d("Donatrix", "Hello6");
     }
 
+    /**
+     * Called when item is selected
+     * @param parent the parent of the item
+     * @param view the current view
+     * @param position position of the item
+     * @param id the items id
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         try {
@@ -123,6 +135,10 @@ public class ItemSearchActivity extends AppCompatActivity
 
     }
 
+    /**
+     * Do nothing
+     * @param parent pointless
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         category = "";

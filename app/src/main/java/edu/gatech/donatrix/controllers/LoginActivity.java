@@ -21,6 +21,11 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailField;
     private EditText passwordField;
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         passwordField = findViewById(R.id.loginPasswordTextField);
     }
 
+    /**
+     * Called when login button is pressed
+     *
+     * @param view the current view
+     */
     public void onLoginPressed(View view) {
         Map<String, Object> body = new HashMap<>();
         body.put("email", "" + emailField.getText());

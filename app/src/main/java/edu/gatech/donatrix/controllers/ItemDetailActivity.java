@@ -17,6 +17,11 @@ import edu.gatech.donatrix.data.RESTCaller;
  */
 public class ItemDetailActivity extends AppCompatActivity {
 
+    /**
+     * Activity initializer
+     *
+     * @param savedInstanceState the activity state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

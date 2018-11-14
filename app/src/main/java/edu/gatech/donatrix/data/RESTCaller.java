@@ -10,8 +10,19 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Makes API calls
+ */
 public class RESTCaller {
     private static final int TARGET = 200;
+
+    /**
+     * Post to the api
+     *
+     * @param urlString database url
+     * @param body information to post
+     * @return response
+     */
     public static Map<String, Object> post(String urlString, Map<String, Object> body) {
         try {
             URL url = new URL(urlString);
@@ -36,6 +47,13 @@ public class RESTCaller {
         }
     }
 
+    /**
+     * Makes a get request
+     *
+     * @param urlString database url
+     *
+     * @return response
+     */
     public static Map<String, Object> get(String urlString) {
         try {
             URL url = new URL(urlString);
