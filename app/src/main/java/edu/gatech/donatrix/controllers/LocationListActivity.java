@@ -5,15 +5,20 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.LocationDao;
 import edu.gatech.donatrix.model.Location;
 
+/**
+ * An Activity for Location List
+ */
 public class LocationListActivity extends AppCompatActivity
         implements AdapterView.OnItemSelectedListener {
 
@@ -45,15 +50,29 @@ public class LocationListActivity extends AppCompatActivity
         location = null;
     }
 
-
+    /**
+     * Will go back from this screen
+     * @param view XML
+     */
     public void onBackButtonPressed(View view) {
         finish();
     }
 
+    /**
+     * This is select a location to view
+     * @param view XML
+     */
     public void onChooseButtonPressed(View view) {
-        Log.d("Zeke", location.getName());
+
         Intent intent = new Intent(LocationListActivity.this, ItemListActivity.class);
-        intent.putExtra("location_id", location.getKey());
-        startActivity(intent);
+        if (location != null) {
+            intent.putExtra("location_id", location.getKey());
+            startActivity(intent);
+        } else {
+            Toast toast = Toast.makeText(this, "Location is null", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+        }
+
     }
 }

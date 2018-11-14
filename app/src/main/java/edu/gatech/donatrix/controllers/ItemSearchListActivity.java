@@ -11,6 +11,9 @@ import java.util.List;
 
 import edu.gatech.donatrix.R;
 
+/**
+ * An Activity to display the list of searched items.
+ */
 public class ItemSearchListActivity extends AppCompatActivity {
 
     ListView listView;

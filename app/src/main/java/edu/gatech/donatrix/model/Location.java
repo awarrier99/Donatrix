@@ -5,7 +5,9 @@ import edu.gatech.donatrix.dao.Database;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-
+/**
+ * A location class
+ */
 public class Location implements Serializable {
     private int key; //Paul rename to id or uid
     private String name; //Paul: rename to title
@@ -19,12 +21,17 @@ public class Location implements Serializable {
     private String number; //Paul: rename to phoneNumber or telephone
     private String website;
     private ItemManager inventory;
-
+/**
+ * Constructor!
+ */
     public Location(String name) {
         this.name = name;
     }
 
-    //Paul: info needs to be of type HashMap<String><String>
+    /**
+     * Another constructor. Takes more data.
+     * @param info The data that makes up the Location
+     */
     public Location(String[] info) {
         this.key = Integer.parseInt(info[0]);
         this.setName(info[1]);
@@ -40,6 +47,10 @@ public class Location implements Serializable {
         this.setWebsite(info[10]);
     }
 
+    /**
+     * Major key alert
+     * @return The key
+     */
     public int getKey() {
         return key;
     }
@@ -48,6 +59,10 @@ public class Location implements Serializable {
         this.name = name;
     }
 
+    /**
+     * Getter
+     * @return The name.
+     */
     public String getName() {
         return name;
     }
@@ -56,6 +71,10 @@ public class Location implements Serializable {
         this.latitude = latitude;
     }
 
+    /**
+     * What is the latitude?
+     * @return The lattitude.
+     */
     public String getLatitude() {
         return latitude;
     }
@@ -64,6 +83,10 @@ public class Location implements Serializable {
         this.longitude = longitude;
     }
 
+    /**
+     * Getting the longitude.
+     * @return The longitude.
+     */
     public String getLongitude() {
         return longitude;
     }
@@ -72,6 +95,10 @@ public class Location implements Serializable {
         this.address = address;
     }
 
+    /**
+     * Getter.
+     * @return The address.
+     */
     public String getAddress() {
         return address;
     }
@@ -80,6 +107,10 @@ public class Location implements Serializable {
         this.city = city;
     }
 
+    /**
+     * Getter
+     * @return The city.
+     */
     public String getCity() {
         return city;
     }
@@ -88,6 +119,10 @@ public class Location implements Serializable {
         this.state = state;
     }
 
+    /**
+     * Getter
+     * @return The state.
+     */
     public String getState() {
         return state;
     }
@@ -96,6 +131,10 @@ public class Location implements Serializable {
         this.zip = zip;
     }
 
+    /**
+     * Getter
+     * @return The zip lock bag.
+     */
     public String getZip() {
         return zip;
     }
@@ -104,6 +143,10 @@ public class Location implements Serializable {
         this.locationType = locationType;
     }
 
+    /**
+     * Getter
+     * @return The location type (enum).
+     */
     public LocationType getLocationType() {
         return locationType;
     }
@@ -112,6 +155,10 @@ public class Location implements Serializable {
         this.number = number;
     }
 
+    /**
+     * Getter
+     * @return The phone number.
+     */
     public String getNumber() {
         return number;
     }
@@ -120,14 +167,28 @@ public class Location implements Serializable {
         this.website = website;
     }
 
+    /**
+     * Getter
+     * @return The website
+     */
     public String getWebsite() {
         return website;
     }
 
+    /**
+     * A method to add the item.
+     * @param item The item to add to the location.
+     * @param context Something.
+     * @param employee The employee that is adding the item.
+     */
     public void addItem(Item item, Context context, LocationEmployee employee) {
         Database.getInstance(context).addItem(item, employee);
     }
 
+    /**
+     * How we remove an item from this location.
+     * @param item The item to remove.
+     */
     public void removeItem(Item item) {
         this.inventory.removeItem(item);
     }

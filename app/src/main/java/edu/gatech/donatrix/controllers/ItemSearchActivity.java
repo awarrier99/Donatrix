@@ -25,6 +25,9 @@ import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.ItemCategory;
 import edu.gatech.donatrix.model.Location;
 
+/**
+ * An Activity to search for items.
+ */
 public class ItemSearchActivity extends AppCompatActivity
         implements AdapterView.OnItemSelectedListener {
 
@@ -126,10 +129,18 @@ public class ItemSearchActivity extends AppCompatActivity
         location = null;
     }
 
+    /**
+     * What to do when cancelled.
+     * @param view XML
+     */
     public void onCancelButtonPressed(View view) {
         finish();
     }
 
+    /**
+     * What happens when search is pressed.
+     * @param view XML
+     */
     public void onSearchButtonPressed(View view) {
         Map<String, Object> body = new HashMap<>();
         if (location != null) {
@@ -161,6 +172,10 @@ public class ItemSearchActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * How to get the details of an item.
+     * @param view XML
+     */
     public void onDetailsButtonPressed(View view) {
         String itemName = (String) resultSpinner.getItemAtPosition(0);
         Map<String, Object> item = new LinkedHashMap<>();

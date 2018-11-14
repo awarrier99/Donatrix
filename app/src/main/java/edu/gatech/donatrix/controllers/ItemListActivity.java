@@ -23,6 +23,9 @@ import java.util.Map;
 import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
 
+/**
+ * An Activity to display a list of Items
+ */
 public class ItemListActivity extends AppCompatActivity
         implements AdapterView.OnItemSelectedListener {
 
@@ -112,10 +115,18 @@ public class ItemListActivity extends AppCompatActivity
         item = null;
     }
 
+    /**
+     * What to do when the cancel button is pressed
+     * @param view Something to make it show up in the .xml
+     */
     public void onCancelButtonPressed(View view) {
         finish();
     }
 
+    /**
+     * What happens when the Detail button is pressed? Idk. See below...
+     * @param view Something for xml.
+     */
     public void onDetailsButtonPressed(View view) {
         Map<String, Object> item = new LinkedHashMap<>();
         for (Map m: items) {
