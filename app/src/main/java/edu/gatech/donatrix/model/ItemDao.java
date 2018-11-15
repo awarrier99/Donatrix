@@ -1,4 +1,4 @@
-package edu.gatech.donatrix.dao;
+package edu.gatech.donatrix.model;
 
 
 import android.content.Context;
@@ -7,11 +7,6 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Date;
 import java.util.List;
-
-import edu.gatech.donatrix.model.Item;
-import edu.gatech.donatrix.model.ItemCategory;
-import edu.gatech.donatrix.model.Location;
-import edu.gatech.donatrix.model.LocationEmployee;
 
 /**
  * Dao for manipulating items.

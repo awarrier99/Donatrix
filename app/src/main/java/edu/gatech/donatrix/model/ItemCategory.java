@@ -13,10 +13,9 @@ public enum ItemCategory {
     HOUSEHOLD("Household"),
     OTHER("Other");
 
-    private final String category;
+    private String category;
 
     ItemCategory(String category) {
-        this.category = category;
     }
 
     /**

@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * An item class
  */
-public class Item implements Serializable {
+class Item implements Serializable {
 
     private Timestamp time;
     private Location location;

@@ -7,7 +7,7 @@ class Admin extends User {
 
 
     private String name;
-    private String email;
+    // --Commented out by Inspection (11/15/2018 1:48 PM):private String email;
     private String password;
 
     /**
@@ -30,15 +30,10 @@ class Admin extends User {
         return name;
     }
 
-    /**
-     * Gets the current email address
-     *
-     * @return email address of admin account
-     */
-    @Override
-    public String getEmail() {
-        return email;
-    }
+    //    @Override
+//    public String getEmail() {
+//        return email;
+//    }
 
     /**
      * Gets the current password
@@ -60,15 +55,10 @@ class Admin extends User {
         this.name = name;
     }
 
-    /**
-     * Sets the email address
-     *
-     * @param email new email address
-     */
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    //    @Override
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     /**
      * Sets the password

@@ -39,7 +39,7 @@ public class AddItemActivity extends AppCompatActivity
     private int locationId;
 
     /**
-     * Activity inializer
+     * Activity initializer
      *
      * @param savedInstanceState the saved state
      */
@@ -104,7 +104,7 @@ public class AddItemActivity extends AppCompatActivity
      */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        //do nothing
+        finish();
     }
 
     /**

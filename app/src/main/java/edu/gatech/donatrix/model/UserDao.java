@@ -1,8 +1,6 @@
-package edu.gatech.donatrix.dao;
+package edu.gatech.donatrix.model;
 
 import android.content.Context;
-
-import edu.gatech.donatrix.model.User;
 
 /**
  * Database access object

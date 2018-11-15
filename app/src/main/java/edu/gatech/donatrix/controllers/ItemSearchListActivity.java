@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,8 +17,7 @@ import edu.gatech.donatrix.R;
  */
 public class ItemSearchListActivity extends AppCompatActivity {
 
-    final List list = new ArrayList();
-    ArrayAdapter adapter;
+    private final List list = new ArrayList();
 
     /**
      * Activity initializer
@@ -37,7 +37,7 @@ public class ItemSearchListActivity extends AppCompatActivity {
         list.add("Orange");
         list.add("Orange");
 
-        adapter = new ArrayAdapter(ItemSearchListActivity.this,
+        ListAdapter adapter = new ArrayAdapter(ItemSearchListActivity.this,
                 android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
     }

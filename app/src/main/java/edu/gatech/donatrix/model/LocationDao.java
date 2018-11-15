@@ -1,11 +1,8 @@
-package edu.gatech.donatrix.dao;
+package edu.gatech.donatrix.model;
 
 import android.content.Context;
 
 import java.util.List;
-
-import edu.gatech.donatrix.model.Location;
-import edu.gatech.donatrix.model.User;
 
 /**
  * A DAO for locations.

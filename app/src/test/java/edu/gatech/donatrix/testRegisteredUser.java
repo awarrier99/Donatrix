@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import edu.gatech.donatrix.dao.Database;
+import edu.gatech.donatrix.model.Database;
 import edu.gatech.donatrix.model.User;
 import edu.gatech.donatrix.model.UserType;
 

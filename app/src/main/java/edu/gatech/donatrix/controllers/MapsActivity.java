@@ -13,7 +13,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.List;
 
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.Database;
+import edu.gatech.donatrix.model.Database;
 import edu.gatech.donatrix.model.Location;
 
 /**

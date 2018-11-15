@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.LocationDao;
+import edu.gatech.donatrix.model.LocationDao;
 import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.Location;
 import edu.gatech.donatrix.model.UserType;

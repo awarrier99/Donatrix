@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 import edu.gatech.donatrix.R;
-import edu.gatech.donatrix.dao.LocationDao;
+import edu.gatech.donatrix.model.LocationDao;
 import edu.gatech.donatrix.model.Location;
 
 /**

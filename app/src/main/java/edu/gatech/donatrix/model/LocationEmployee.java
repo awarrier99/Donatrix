@@ -7,7 +7,7 @@ import android.content.Context;
 /**
  * A basic location employee
  */
-public class LocationEmployee extends User {
+class LocationEmployee extends User {
     private Location location;
 
     /**

@@ -1,7 +1,7 @@
 package edu.gatech.donatrix.model;
 
 import java.io.Serializable;
-import edu.gatech.donatrix.dao.Database;
+
 import android.content.Context;
 import android.support.annotation.NonNull;
 
@@ -20,7 +20,6 @@ public class Location implements Serializable {
     private LocationType locationType;
     private String number; //Paul: rename to phoneNumber or telephone
     private String website;
-    private ItemManager inventory;
 /**
  * Constructor!
  * @param name the name of the Location
@@ -186,13 +185,13 @@ public class Location implements Serializable {
         Database.getInstance(context).addItem(item, employee);
     }
 
-    /**
-     * How we remove an item from this location.
-     * @param item The item to remove.
-     */
-    public void removeItem(Item item) {
-        this.inventory.removeItem(item);
-    }
+//    /**
+//     * How we remove an item from this location.
+//     * @param item The item to remove.
+//     */
+//    public void removeItem(Item item) {
+//        this.inventory.removeItem(item);
+//    }
     @NonNull
     @Override
     public String toString() {
