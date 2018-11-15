@@ -178,12 +178,13 @@ public class ItemSearchActivity extends AppCompatActivity
             List<Map<String, Object>> res = (List<Map<String, Object>>) response.get("items");
             items = res;
             Collection<String> result = new ArrayList<>();
+            assert res != null;
             for (Map m : res) {
                 Log.d("Donatrix", m.toString());
                 result.add((String) m.get("s_description"));
             }
             ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this,
-                    android.R.layout.simple_spinner_item, result.toArray());
+                    android.R.layout.simple_spinner_item, Objects.requireNonNull(result.toArray()));
             stringArrayAdapter.setDropDownViewResource(
                     android.R.layout.simple_spinner_dropdown_item);
             resultSpinner.setAdapter(stringArrayAdapter);
@@ -198,7 +199,7 @@ public class ItemSearchActivity extends AppCompatActivity
         String itemName = (String) resultSpinner.getItemAtPosition(0);
         Map<String, Object> item = new LinkedHashMap<>();
         for (Map m: items) {
-            if (m.get("s_description").equals(this.item)) {
+            if (Objects.requireNonNull(m.get("s_description")).equals(this.item)) {
                 item = m;
             }
         }

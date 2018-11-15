@@ -16,7 +16,7 @@ import edu.gatech.donatrix.model.LocationEmployee;
 /**
  * Dao for manipulating items.
  */
-public class ItemDao {
+class ItemDao {
     /**
      * A method to add items to the Singleton
      * @param employee the person registering the item

@@ -5,7 +5,9 @@ import java.util.Map;
 
 import edu.gatech.donatrix.data.RESTCaller;
 
-
+/**
+ * A basic User class. Superclass of Admin, Manager, and Employee
+ */
 public class User implements Serializable {
 
     private String email;

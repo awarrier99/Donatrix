@@ -7,6 +7,9 @@ import android.view.View;
 
 import edu.gatech.donatrix.R;
 
+/**
+ * An Activity for the home base of Manager
+ */
 public class ManagerHomeActivity extends AppCompatActivity {
 
     /**

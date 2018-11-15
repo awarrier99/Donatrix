@@ -3,7 +3,7 @@ package edu.gatech.donatrix.model;
 /**
  * The admin class
  */
-public class Admin extends User {
+class Admin extends User {
 
 
     private String name;

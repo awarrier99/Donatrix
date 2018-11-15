@@ -49,7 +49,8 @@ public class ItemListActivity extends AppCompatActivity
         boolean allItems = intent.getBooleanExtra("all_items", false);
 
         if (locationId == 0) {
-            Toast toast = Toast.makeText(this, "Location not passed in", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Location not passed in",
+                    Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             finish();

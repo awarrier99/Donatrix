@@ -100,7 +100,6 @@ public class Database {
                 userMap = (HashMap<String, User>) is.readObject();
                 break;
             case LOC:
-                //noinspection unchecked
                 locationMap = (HashMap<Integer, Location>) is.readObject();
                 break;
             case INVENTORY:

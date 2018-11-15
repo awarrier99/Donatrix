@@ -16,7 +16,6 @@ import edu.gatech.donatrix.R;
  */
 public class ItemSearchListActivity extends AppCompatActivity {
 
-    ListView listView;
     final List list = new ArrayList();
     ArrayAdapter adapter;
 
@@ -30,7 +29,7 @@ public class ItemSearchListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_search_list);
 
-        listView = findViewById(R.id.list_view);
+        ListView listView = findViewById(R.id.list_view);
         list.add("Orange");
         list.add("Orange");
         list.add("Orange");

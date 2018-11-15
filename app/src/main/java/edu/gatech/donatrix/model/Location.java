@@ -23,6 +23,7 @@ public class Location implements Serializable {
     private ItemManager inventory;
 /**
  * Constructor!
+ * @param name the name of the Location
  */
     public Location(String name) {
         this.name = name;

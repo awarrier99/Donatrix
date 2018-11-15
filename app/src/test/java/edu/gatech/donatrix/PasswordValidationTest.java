@@ -13,7 +13,9 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class PasswordValidationTest {
-
+    /**
+     * Testing strength of the password
+     */
     @Test
     public void isPasswordStrong_test_length() {
         assertTrue("test_short", !isPasswordStrong("Aa0")); //Too short
@@ -23,6 +25,9 @@ public class PasswordValidationTest {
         assertTrue("test_bc+1", isPasswordStrong("Aa01ks^43")); //Bounday +1
     }
 
+    /**
+     * Testing if the string contains an upper case character
+     */
     @Test
     public void isPasswordStrong_test_containsUpper() {
         assertTrue("test_0",!isPasswordStrong("daaadfbab1234jfjbq")); //no Cap
@@ -32,6 +37,9 @@ public class PasswordValidationTest {
         assertTrue("test_multi", isPasswordStrong("Aaaa16CablkjFOjbq")); //1+ Caps
     }
 
+    /**
+     * Testing if the password contains a lower case letter
+     */
     @Test
     public void isPasswordStrong_test_containsLower() {
         assertTrue("test_0", !isPasswordStrong("123AFJF76^%")); //0 lower
@@ -41,6 +49,9 @@ public class PasswordValidationTest {
         assertTrue("test_multi", isPasswordStrong("aSFKN0N#(@fd!")); //1+ lowers
     }
 
+    /**
+     * Testing if the password contains a number
+     */
     @Test
     public void isPasswordStrong_test_containsNum() {
         assertTrue("test_0", !isPasswordStrong("askdjAKKFDF!")); //0 num

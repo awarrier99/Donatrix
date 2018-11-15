@@ -23,6 +23,9 @@ import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.Location;
 import edu.gatech.donatrix.model.UserType;
 
+/**
+ * An activity for registering users
+ */
 public class RegisterActivity extends AppCompatActivity
         implements AdapterView.OnItemSelectedListener {
 

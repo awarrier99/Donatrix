@@ -1,5 +1,8 @@
 package edu.gatech.donatrix.model;
 
+/**
+ * A basic Manager class
+ */
 public class Manager extends User {
 
     private String name;
@@ -47,7 +50,7 @@ public class Manager extends User {
 
     /**
      * name setter
-     * @param name
+     * @param name The name to set the Manager to
      */
     @Override
     public void setName(String name) {
@@ -56,7 +59,7 @@ public class Manager extends User {
 
     /**
      * email setter
-     * @param email
+     * @param email the email to set
      */
     @Override
     public void setEmail(String email) {
@@ -65,7 +68,7 @@ public class Manager extends User {
 
     /**
      * password setter
-     * @param password
+     * @param password the password to set
      */
     @Override
     public void setPassword(String password) {

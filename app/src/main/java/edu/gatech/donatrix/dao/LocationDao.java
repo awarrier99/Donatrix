@@ -2,7 +2,6 @@ package edu.gatech.donatrix.dao;
 
 import android.content.Context;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.donatrix.model.Location;

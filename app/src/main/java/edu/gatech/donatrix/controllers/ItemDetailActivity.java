@@ -50,8 +50,8 @@ public class ItemDetailActivity extends AppCompatActivity {
         boolean success = (boolean) response.get("success");
 
         if (success) {
-            locationText.setText((String) ((Map<String, Object>) response.get("location"))
-                    .get("Name"));
+            locationText.setText((String) ((Map<String, Object>) Objects.requireNonNull(
+                    response.get("location"))).get("Name"));
         }
     }
 

@@ -16,6 +16,9 @@ import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.dao.Database;
 import edu.gatech.donatrix.model.Location;
 
+/**
+ * Google Maps activity
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     /**

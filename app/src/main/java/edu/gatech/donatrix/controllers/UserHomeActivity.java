@@ -7,6 +7,9 @@ import android.view.View;
 
 import edu.gatech.donatrix.R;
 
+/**
+ * The home base for Users
+ */
 public class UserHomeActivity extends AppCompatActivity {
 
     /**

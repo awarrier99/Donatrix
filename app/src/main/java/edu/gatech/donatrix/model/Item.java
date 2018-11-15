@@ -29,7 +29,7 @@ public class Item implements Serializable {
      */
     public Item(Timestamp time, Location location, String sDescription, String fDescription,
                 double value, ItemCategory category, String comments) {
-        this.time = time;
+        this.time = (java.sql.Timestamp) time.clone();
         this.location = location;
         this.sDescription = sDescription;
         this.fDescription = fDescription;
@@ -51,7 +51,7 @@ public class Item implements Serializable {
      * @param time I believe the time is...
      */
     public void setTime(Timestamp time) {
-        this.time = time;
+        this.time = (java.sql.Timestamp) time.clone();
     }
 
     /**

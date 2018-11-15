@@ -7,7 +7,7 @@ import edu.gatech.donatrix.model.User;
 /**
  * Database access object
  */
-public class UserDao {
+class UserDao {
     /**
      * Registers a user
      *

@@ -17,6 +17,9 @@ import edu.gatech.donatrix.R;
 import edu.gatech.donatrix.data.RESTCaller;
 import edu.gatech.donatrix.model.User;
 
+/**
+ * An Activity for logging in
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailField;

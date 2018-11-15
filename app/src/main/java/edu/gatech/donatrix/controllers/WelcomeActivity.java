@@ -7,6 +7,9 @@ import android.view.View;
 
 import edu.gatech.donatrix.R;
 
+/**
+ * The main page for the Application.
+ */
 public class WelcomeActivity extends AppCompatActivity {
 
     /**

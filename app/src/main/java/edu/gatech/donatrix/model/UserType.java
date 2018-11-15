@@ -15,7 +15,7 @@ public enum UserType {
      * constructor
      * @param type type of user
      */
-    public UserType(String type) {
+    UserType(String type) {
         this.type = type;
     }
 
