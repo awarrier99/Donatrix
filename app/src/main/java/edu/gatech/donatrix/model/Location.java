@@ -73,7 +73,7 @@ public class Location implements Serializable {
 
     /**
      * What is the latitude?
-     * @return The lattitude.
+     * @return The latitude.
      */
     public String getLatitude() {
         return latitude;

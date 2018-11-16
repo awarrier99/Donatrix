@@ -7,7 +7,7 @@ class Admin extends User {
 
 
     private String name;
-    // --Commented out by Inspection (11/15/2018 1:48 PM):private String email;
+    private String email;
     private String password;
 
     /**

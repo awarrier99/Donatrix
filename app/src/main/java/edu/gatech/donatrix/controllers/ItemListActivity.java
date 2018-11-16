@@ -82,7 +82,7 @@ public class ItemListActivity extends AppCompatActivity
                 for (Map m: fullItems) {
                     items.add((String) m.get("s_description"));
                 }
-                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(
+                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter<String>(
                         this, android.R.layout.simple_spinner_item, items);
                 itemArrayAdapter.setDropDownViewResource(
                         android.R.layout.simple_spinner_dropdown_item);
@@ -93,7 +93,7 @@ public class ItemListActivity extends AppCompatActivity
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 String[] empty = new String[0];
-                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(
+                ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter<String>(
                         this, android.R.layout.simple_spinner_item, empty);
                 itemArrayAdapter.setDropDownViewResource(
                         android.R.layout.simple_spinner_dropdown_item);
@@ -106,7 +106,7 @@ public class ItemListActivity extends AppCompatActivity
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             String[] empty = new String[0];
-            ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter(
+            ArrayAdapter<String> itemArrayAdapter = new ArrayAdapter<String>(
                     this, android.R.layout.simple_spinner_item, empty);
             itemArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             itemSpinner.setAdapter(itemArrayAdapter);

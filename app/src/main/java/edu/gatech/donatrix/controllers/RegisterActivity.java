@@ -60,13 +60,14 @@ public class RegisterActivity extends AppCompatActivity
         userTypeSpinner.setOnItemSelectedListener(this);
         locationSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<UserType> adapter = new ArrayAdapter(this,
+        ArrayAdapter<UserType> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, UserType.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userTypeSpinner.setAdapter(adapter);
 
-        ArrayAdapter<Location> locationAdapter = new ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, Objects.requireNonNull(LocationDao
+        ArrayAdapter<Location> locationAdapter = new ArrayAdapter<Location>(
+                this, android.R.layout.simple_spinner_item, (Location[])
+                Objects.requireNonNull(LocationDao
                 .getLocations(this).toArray()));
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationAdapter);

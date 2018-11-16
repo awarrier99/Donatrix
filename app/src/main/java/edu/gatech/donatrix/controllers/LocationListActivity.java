@@ -39,9 +39,9 @@ public class LocationListActivity extends AppCompatActivity
         Spinner locationSpinner = findViewById(R.id.locationListLocationSpinner);
         locationSpinner.setOnItemSelectedListener(this);
 
-        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, Objects.requireNonNull(LocationDao.
-                getLocations(this).toArray()));
+        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, (Location[]) Objects.requireNonNull(
+                LocationDao.getLocations(this).toArray()));
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
     }

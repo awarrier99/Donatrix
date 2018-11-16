@@ -72,8 +72,9 @@ public class ItemSearchActivity extends AppCompatActivity
             locs.add(loc.getName());
         }
         locs.add(0, "");
-        ArrayAdapter<Location> locationArrayAdapter = new ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, Objects.requireNonNull(locs.toArray()));
+        ArrayAdapter<String> locationArrayAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, (String[]) Objects.requireNonNull(
+                locs.toArray()));
         locationArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(locationArrayAdapter);
 
@@ -84,9 +85,9 @@ public class ItemSearchActivity extends AppCompatActivity
             categories.add(i.getCategory());
         }
         categories.add(0, "");
-        ArrayAdapter<String> itemCategoryArrayAdapter = new ArrayAdapter(
+        ArrayAdapter<String> itemCategoryArrayAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,
-                Objects.requireNonNull(categories.toArray()));
+                (String[]) Objects.requireNonNull(categories.toArray()));
         Log.d("Donatrix", "Hello3");
         itemCategoryArrayAdapter.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
@@ -96,7 +97,7 @@ public class ItemSearchActivity extends AppCompatActivity
 
         String[] result = new String[1];
         result[0] = "";
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item, result);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resultSpinner.setAdapter(stringArrayAdapter);
@@ -183,8 +184,9 @@ public class ItemSearchActivity extends AppCompatActivity
                 Log.d("Donatrix", m.toString());
                 result.add((String) m.get("s_description"));
             }
-            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter(this,
-                    android.R.layout.simple_spinner_item, Objects.requireNonNull(result.toArray()));
+            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_spinner_item, (String[])
+                    Objects.requireNonNull(result.toArray()));
             stringArrayAdapter.setDropDownViewResource(
                     android.R.layout.simple_spinner_dropdown_item);
             resultSpinner.setAdapter(stringArrayAdapter);
