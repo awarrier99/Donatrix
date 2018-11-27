@@ -16,7 +16,7 @@ public class UserHomeActivity extends AppCompatActivity {
     }
 
     public void onLocationListPressed(View view) {
-        Intent intent = new Intent(this, LocationListActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent(view.getContext(), LocationListActivity.class);
+        view.getContext().startActivity(intent);
     }
 }
