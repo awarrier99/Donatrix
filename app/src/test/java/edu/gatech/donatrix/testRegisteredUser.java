@@ -19,11 +19,11 @@ public class testRegisteredUser {
 
     @Before
     public void setUp() {
-        good = new User("zday123@yahoo.com", "janisday", "Zeke Day", false, UserType.USER);
-        locked = new User("aday123@yahoo.com", "password", "Alex Day", true, UserType.USER);
+        good = new User("pjharris1998@gmail.com", "pharris36", "Parker Harris", false, UserType.USER);
+        locked = new User("pjharris1998@gmail.com", "password", "Pete Harris", true, UserType.USER);
         unregistered = new User("blah@blah.com", "blah", "Blah", false, UserType.USER);
         nUser = new User(null, "null", "Null", false, UserType.USER);
-        badUser = new User("zday123@yahoo.com", "password", "Zeke Day", false, UserType.USER);
+        badUser = new User("pjharris1998@gmail.com", "password", "Parker Harris", false, UserType.USER);
         db.registerUser(good);
         db.registerUser(locked);
         db.registerUser(nUser);
