@@ -5,13 +5,6 @@ import android.provider.ContactsContract
 import android.util.Log
 
 
-import java.io.BufferedReader
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.io.ObjectInputStream
-import java.io.ObjectOutputStream
 import java.util.ArrayList
 import java.util.HashMap
 
@@ -20,6 +13,7 @@ import edu.gatech.donatrix.model.Item
 import edu.gatech.donatrix.model.Location
 import edu.gatech.donatrix.model.LocationEmployee
 import edu.gatech.donatrix.model.User
+import java.io.*
 
 
 class Database {
@@ -143,7 +137,7 @@ class Database {
         if (locationMap!!.isEmpty()) {
             try {
                 val `is` = context.resources.openRawResource(R.raw.location_data)
-                val br = BufferedReader(InputStreamReader(`is`))
+                val br = BufferedReader(InputStreamReader(`is`) as Reader?)
                 var line: String
                 var counter = 0
 
